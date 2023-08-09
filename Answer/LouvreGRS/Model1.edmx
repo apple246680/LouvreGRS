@@ -1,0 +1,1144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LouvreGRS_ANMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AccountData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="LoginAccount" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CollectibleData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoomID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="WikiCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="SerialNumber" Type="int" Nullable="false" />
+          <Property Name="Wikidata" Type="nvarchar" MaxLength="100" />
+          <Property Name="Image" Type="nvarchar" MaxLength="300" />
+          <Property Name="Label" Type="nvarchar" MaxLength="200" />
+          <Property Name="Creator" Type="nvarchar" MaxLength="200" />
+          <Property Name="DateOfEstab" Type="nvarchar" MaxLength="20" />
+          <Property Name="Nature" Type="nvarchar" MaxLength="100" />
+          <Property Name="RegisterNumber" Type="nvarchar" MaxLength="25" />
+          <Property Name="JocondeEncoding" Type="nvarchar" MaxLength="100" />
+          <Property Name="AtlasIndexNumber" Type="nvarchar" MaxLength="100" />
+          <Property Name="Status" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ExhibitionActivityData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ActivityCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DisplayTitle" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Author" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" Nullable="false" />
+          <Property Name="ExtensionClassify" Type="int" Nullable="false" />
+          <Property Name="VisitLimitationPerDay" Type="int" Nullable="false" />
+          <Property Name="SuggestVisitingHours" Type="numeric" Precision="2" Scale="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ExhibitionActivityWithHall">
+          <Key>
+            <PropertyRef Name="HallID" />
+            <PropertyRef Name="ActivityID" />
+          </Key>
+          <Property Name="HallID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ActivityID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FreeQualification">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="FreeItem" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="FreeClassify" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="IsValid" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GroupRegistration">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PackageID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Minors" Type="int" Nullable="false" />
+          <Property Name="Adults" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="VisitLanguage" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="VisitDate" Type="date" />
+          <Property Name="VisitStartTime" Type="time" Precision="7" />
+          <Property Name="VisitEndTime" Type="time" Precision="7" />
+          <Property Name="TravelAgencyUserDataID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="PaymentTime" Type="datetime" />
+          <Property Name="Status" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GroupRegistrationVisitors">
+          <Key>
+            <PropertyRef Name="GroupRegistrationID" />
+            <PropertyRef Name="No" />
+          </Key>
+          <Property Name="GroupRegistrationID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="No" Type="int" Nullable="false" />
+          <Property Name="VisitorID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="VisitorName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="Birthdate" Type="date" Nullable="false" />
+          <Property Name="EMail" Type="nvarchar" MaxLength="100" />
+          <Property Name="FreeID" Type="int" />
+          <Property Name="Note" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="HallData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="KnownName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Introduction" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Region" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Extension" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CollectionCount" Type="int" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="Note" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HallWithStaff">
+          <Key>
+            <PropertyRef Name="AccountID" />
+            <PropertyRef Name="HallID" />
+          </Key>
+          <Property Name="AccountID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="HallID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Responsibility" Type="int" />
+        </EntityType>
+        <EntityType Name="Package">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PackageName" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Features" Type="nvarchar" MaxLength="100" />
+          <Property Name="VisitTime" Type="nvarchar" MaxLength="20" />
+          <Property Name="TotalHours" Type="numeric" Precision="2" Scale="1" />
+          <Property Name="FeePerPerson" Type="float" />
+          <Property Name="Maximum" Type="int" />
+          <Property Name="IsValid" Type="nchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="PackageItinerary">
+          <Key>
+            <PropertyRef Name="PackageID" />
+            <PropertyRef Name="ExhibitionActivityDataID" />
+          </Key>
+          <Property Name="PackageID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ExhibitionActivityDataID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="VisitOrder" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RoomData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="HallID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoomName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CommonsCategory" Type="nvarchar" MaxLength="100" />
+          <Property Name="Floor" Type="int" Nullable="false" />
+          <Property Name="Extension" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="SpecialOpenNote" Type="nvarchar" MaxLength="200" />
+          <Property Name="Note" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="StaffData">
+          <Key>
+            <PropertyRef Name="AccountID" />
+          </Key>
+          <Property Name="AccountID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="EmployeeNumber" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="JobTitle" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PreferedLanguage" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TravelAgencyData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="GovRegistrationCode" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="OfficialWebsite" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TravelAgencyUserData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AccountID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TravelAgencyID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CollectibleData_RoomData">
+          <End Role="RoomData" Type="Self.RoomData" Multiplicity="1" />
+          <End Role="CollectibleData" Type="Self.CollectibleData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoomData">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CollectibleData">
+              <PropertyRef Name="RoomID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExhibitionActivityWithHall_ExhibitionActivityData">
+          <End Role="ExhibitionActivityData" Type="Self.ExhibitionActivityData" Multiplicity="1" />
+          <End Role="ExhibitionActivityWithHall" Type="Self.ExhibitionActivityWithHall" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExhibitionActivityData">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ExhibitionActivityWithHall">
+              <PropertyRef Name="ActivityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExhibitionActivityWithHall_HallData">
+          <End Role="HallData" Type="Self.HallData" Multiplicity="1" />
+          <End Role="ExhibitionActivityWithHall" Type="Self.ExhibitionActivityWithHall" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HallData">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ExhibitionActivityWithHall">
+              <PropertyRef Name="HallID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupRegistration_Package">
+          <End Role="Package" Type="Self.Package" Multiplicity="1" />
+          <End Role="GroupRegistration" Type="Self.GroupRegistration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Package">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GroupRegistration">
+              <PropertyRef Name="PackageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupRegistration_TravelAgencyUserData">
+          <End Role="TravelAgencyUserData" Type="Self.TravelAgencyUserData" Multiplicity="1" />
+          <End Role="GroupRegistration" Type="Self.GroupRegistration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TravelAgencyUserData">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GroupRegistration">
+              <PropertyRef Name="TravelAgencyUserDataID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HallWithStaff_HallData">
+          <End Role="HallData" Type="Self.HallData" Multiplicity="1" />
+          <End Role="HallWithStaff" Type="Self.HallWithStaff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HallData">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HallWithStaff">
+              <PropertyRef Name="HallID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HallWithStaff_StaffData">
+          <End Role="StaffData" Type="Self.StaffData" Multiplicity="1" />
+          <End Role="HallWithStaff" Type="Self.HallWithStaff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StaffData">
+              <PropertyRef Name="AccountID" />
+            </Principal>
+            <Dependent Role="HallWithStaff">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PackageItinerary_ExhibitionActivityData">
+          <End Role="ExhibitionActivityData" Type="Self.ExhibitionActivityData" Multiplicity="1" />
+          <End Role="PackageItinerary" Type="Self.PackageItinerary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExhibitionActivityData">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PackageItinerary">
+              <PropertyRef Name="ExhibitionActivityDataID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PackageItinerary_Package">
+          <End Role="Package" Type="Self.Package" Multiplicity="1" />
+          <End Role="PackageItinerary" Type="Self.PackageItinerary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Package">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PackageItinerary">
+              <PropertyRef Name="PackageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoomData_HallData">
+          <End Role="HallData" Type="Self.HallData" Multiplicity="1" />
+          <End Role="RoomData" Type="Self.RoomData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HallData">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RoomData">
+              <PropertyRef Name="HallID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StaffData_AccountData">
+          <End Role="AccountData" Type="Self.AccountData" Multiplicity="1" />
+          <End Role="StaffData" Type="Self.StaffData" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="AccountData">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StaffData">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TravelAgencyUserData_AccountData">
+          <End Role="AccountData" Type="Self.AccountData" Multiplicity="1" />
+          <End Role="TravelAgencyUserData" Type="Self.TravelAgencyUserData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccountData">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TravelAgencyUserData">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TravelAgencyUserData_TravelAgencyData">
+          <End Role="TravelAgencyData" Type="Self.TravelAgencyData" Multiplicity="1" />
+          <End Role="TravelAgencyUserData" Type="Self.TravelAgencyUserData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TravelAgencyData">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TravelAgencyUserData">
+              <PropertyRef Name="TravelAgencyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Visitors_FreeQualification">
+          <End Role="FreeQualification" Type="Self.FreeQualification" Multiplicity="0..1" />
+          <End Role="GroupRegistrationVisitors" Type="Self.GroupRegistrationVisitors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FreeQualification">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GroupRegistrationVisitors">
+              <PropertyRef Name="FreeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Visitors_GroupRegistration">
+          <End Role="GroupRegistration" Type="Self.GroupRegistration" Multiplicity="1" />
+          <End Role="GroupRegistrationVisitors" Type="Self.GroupRegistrationVisitors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupRegistration">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GroupRegistrationVisitors">
+              <PropertyRef Name="GroupRegistrationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LouvreGRS_ANMModelStoreContainer">
+          <EntitySet Name="AccountData" EntityType="Self.AccountData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CollectibleData" EntityType="Self.CollectibleData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExhibitionActivityData" EntityType="Self.ExhibitionActivityData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExhibitionActivityWithHall" EntityType="Self.ExhibitionActivityWithHall" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FreeQualification" EntityType="Self.FreeQualification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GroupRegistration" EntityType="Self.GroupRegistration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GroupRegistrationVisitors" EntityType="Self.GroupRegistrationVisitors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HallData" EntityType="Self.HallData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HallWithStaff" EntityType="Self.HallWithStaff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Package" EntityType="Self.Package" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PackageItinerary" EntityType="Self.PackageItinerary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoomData" EntityType="Self.RoomData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StaffData" EntityType="Self.StaffData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TravelAgencyData" EntityType="Self.TravelAgencyData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TravelAgencyUserData" EntityType="Self.TravelAgencyUserData" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CollectibleData_RoomData" Association="Self.FK_CollectibleData_RoomData">
+            <End Role="RoomData" EntitySet="RoomData" />
+            <End Role="CollectibleData" EntitySet="CollectibleData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExhibitionActivityWithHall_ExhibitionActivityData" Association="Self.FK_ExhibitionActivityWithHall_ExhibitionActivityData">
+            <End Role="ExhibitionActivityData" EntitySet="ExhibitionActivityData" />
+            <End Role="ExhibitionActivityWithHall" EntitySet="ExhibitionActivityWithHall" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExhibitionActivityWithHall_HallData" Association="Self.FK_ExhibitionActivityWithHall_HallData">
+            <End Role="HallData" EntitySet="HallData" />
+            <End Role="ExhibitionActivityWithHall" EntitySet="ExhibitionActivityWithHall" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupRegistration_Package" Association="Self.FK_GroupRegistration_Package">
+            <End Role="Package" EntitySet="Package" />
+            <End Role="GroupRegistration" EntitySet="GroupRegistration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupRegistration_TravelAgencyUserData" Association="Self.FK_GroupRegistration_TravelAgencyUserData">
+            <End Role="TravelAgencyUserData" EntitySet="TravelAgencyUserData" />
+            <End Role="GroupRegistration" EntitySet="GroupRegistration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HallWithStaff_HallData" Association="Self.FK_HallWithStaff_HallData">
+            <End Role="HallData" EntitySet="HallData" />
+            <End Role="HallWithStaff" EntitySet="HallWithStaff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HallWithStaff_StaffData" Association="Self.FK_HallWithStaff_StaffData">
+            <End Role="StaffData" EntitySet="StaffData" />
+            <End Role="HallWithStaff" EntitySet="HallWithStaff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PackageItinerary_ExhibitionActivityData" Association="Self.FK_PackageItinerary_ExhibitionActivityData">
+            <End Role="ExhibitionActivityData" EntitySet="ExhibitionActivityData" />
+            <End Role="PackageItinerary" EntitySet="PackageItinerary" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PackageItinerary_Package" Association="Self.FK_PackageItinerary_Package">
+            <End Role="Package" EntitySet="Package" />
+            <End Role="PackageItinerary" EntitySet="PackageItinerary" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoomData_HallData" Association="Self.FK_RoomData_HallData">
+            <End Role="HallData" EntitySet="HallData" />
+            <End Role="RoomData" EntitySet="RoomData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StaffData_AccountData" Association="Self.FK_StaffData_AccountData">
+            <End Role="AccountData" EntitySet="AccountData" />
+            <End Role="StaffData" EntitySet="StaffData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TravelAgencyUserData_AccountData" Association="Self.FK_TravelAgencyUserData_AccountData">
+            <End Role="AccountData" EntitySet="AccountData" />
+            <End Role="TravelAgencyUserData" EntitySet="TravelAgencyUserData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TravelAgencyUserData_TravelAgencyData" Association="Self.FK_TravelAgencyUserData_TravelAgencyData">
+            <End Role="TravelAgencyData" EntitySet="TravelAgencyData" />
+            <End Role="TravelAgencyUserData" EntitySet="TravelAgencyUserData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Visitors_FreeQualification" Association="Self.FK_Visitors_FreeQualification">
+            <End Role="FreeQualification" EntitySet="FreeQualification" />
+            <End Role="GroupRegistrationVisitors" EntitySet="GroupRegistrationVisitors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Visitors_GroupRegistration" Association="Self.FK_Visitors_GroupRegistration">
+            <End Role="GroupRegistration" EntitySet="GroupRegistration" />
+            <End Role="GroupRegistrationVisitors" EntitySet="GroupRegistrationVisitors" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LouvreGRS_ANMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AccountData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoginAccount" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="StaffData" Relationship="Self.FK_StaffData_AccountData" FromRole="AccountData" ToRole="StaffData" />
+          <NavigationProperty Name="TravelAgencyUserDatas" Relationship="Self.FK_TravelAgencyUserData_AccountData" FromRole="AccountData" ToRole="TravelAgencyUserData" />
+        </EntityType>
+        <EntityType Name="CollectibleData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="RoomID" Type="Guid" Nullable="false" />
+          <Property Name="WikiCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SerialNumber" Type="Int32" Nullable="false" />
+          <Property Name="Wikidata" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Label" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Creator" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfEstab" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Nature" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="RegisterNumber" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="JocondeEncoding" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AtlasIndexNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RoomData" Relationship="Self.FK_CollectibleData_RoomData" FromRole="CollectibleData" ToRole="RoomData" />
+        </EntityType>
+        <EntityType Name="ExhibitionActivityData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="ActivityCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DisplayTitle" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Author" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ExtensionClassify" Type="Int32" Nullable="false" />
+          <Property Name="VisitLimitationPerDay" Type="Int32" Nullable="false" />
+          <Property Name="SuggestVisitingHours" Type="Decimal" Precision="2" Scale="1" Nullable="false" />
+          <NavigationProperty Name="PackageItineraries" Relationship="Self.FK_PackageItinerary_ExhibitionActivityData" FromRole="ExhibitionActivityData" ToRole="PackageItinerary" />
+          <NavigationProperty Name="HallDatas" Relationship="Self.ExhibitionActivityWithHall" FromRole="ExhibitionActivityData" ToRole="HallData" />
+        </EntityType>
+        <EntityType Name="FreeQualification">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="FreeItem" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FreeClassify" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsValid" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="GroupRegistrationVisitors" Relationship="Self.FK_Visitors_FreeQualification" FromRole="FreeQualification" ToRole="GroupRegistrationVisitors" />
+        </EntityType>
+        <EntityType Name="GroupRegistration">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="PackageID" Type="Guid" Nullable="false" />
+          <Property Name="Minors" Type="Int32" Nullable="false" />
+          <Property Name="Adults" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="VisitLanguage" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VisitDate" Type="DateTime" Precision="0" />
+          <Property Name="VisitStartTime" Type="Time" Precision="7" />
+          <Property Name="VisitEndTime" Type="Time" Precision="7" />
+          <Property Name="TravelAgencyUserDataID" Type="Guid" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PaymentTime" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Package" Relationship="Self.FK_GroupRegistration_Package" FromRole="GroupRegistration" ToRole="Package" />
+          <NavigationProperty Name="TravelAgencyUserData" Relationship="Self.FK_GroupRegistration_TravelAgencyUserData" FromRole="GroupRegistration" ToRole="TravelAgencyUserData" />
+          <NavigationProperty Name="GroupRegistrationVisitors" Relationship="Self.FK_Visitors_GroupRegistration" FromRole="GroupRegistration" ToRole="GroupRegistrationVisitors" />
+        </EntityType>
+        <EntityType Name="GroupRegistrationVisitor">
+          <Key>
+            <PropertyRef Name="GroupRegistrationID" />
+            <PropertyRef Name="No" />
+          </Key>
+          <Property Name="GroupRegistrationID" Type="Guid" Nullable="false" />
+          <Property Name="No" Type="Int32" Nullable="false" />
+          <Property Name="VisitorID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VisitorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Birthdate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EMail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FreeID" Type="Int32" />
+          <Property Name="Note" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="FreeQualification" Relationship="Self.FK_Visitors_FreeQualification" FromRole="GroupRegistrationVisitors" ToRole="FreeQualification" />
+          <NavigationProperty Name="GroupRegistration" Relationship="Self.FK_Visitors_GroupRegistration" FromRole="GroupRegistrationVisitors" ToRole="GroupRegistration" />
+        </EntityType>
+        <EntityType Name="HallData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="KnownName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Introduction" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Region" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Extension" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CollectionCount" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="HallWithStaffs" Relationship="Self.FK_HallWithStaff_HallData" FromRole="HallData" ToRole="HallWithStaff" />
+          <NavigationProperty Name="RoomDatas" Relationship="Self.FK_RoomData_HallData" FromRole="HallData" ToRole="RoomData" />
+          <NavigationProperty Name="ExhibitionActivityDatas" Relationship="Self.ExhibitionActivityWithHall" FromRole="HallData" ToRole="ExhibitionActivityData" />
+        </EntityType>
+        <EntityType Name="HallWithStaff">
+          <Key>
+            <PropertyRef Name="AccountID" />
+            <PropertyRef Name="HallID" />
+          </Key>
+          <Property Name="AccountID" Type="Guid" Nullable="false" />
+          <Property Name="HallID" Type="Guid" Nullable="false" />
+          <Property Name="Responsibility" Type="Int32" />
+          <NavigationProperty Name="HallData" Relationship="Self.FK_HallWithStaff_HallData" FromRole="HallWithStaff" ToRole="HallData" />
+          <NavigationProperty Name="StaffData" Relationship="Self.FK_HallWithStaff_StaffData" FromRole="HallWithStaff" ToRole="StaffData" />
+        </EntityType>
+        <EntityType Name="Package">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="PackageName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Features" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="VisitTime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TotalHours" Type="Decimal" Precision="2" Scale="1" />
+          <Property Name="FeePerPerson" Type="Double" />
+          <Property Name="Maximum" Type="Int32" />
+          <Property Name="IsValid" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="GroupRegistrations" Relationship="Self.FK_GroupRegistration_Package" FromRole="Package" ToRole="GroupRegistration" />
+          <NavigationProperty Name="PackageItineraries" Relationship="Self.FK_PackageItinerary_Package" FromRole="Package" ToRole="PackageItinerary" />
+        </EntityType>
+        <EntityType Name="PackageItinerary">
+          <Key>
+            <PropertyRef Name="PackageID" />
+            <PropertyRef Name="ExhibitionActivityDataID" />
+          </Key>
+          <Property Name="PackageID" Type="Guid" Nullable="false" />
+          <Property Name="ExhibitionActivityDataID" Type="Guid" Nullable="false" />
+          <Property Name="VisitOrder" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ExhibitionActivityData" Relationship="Self.FK_PackageItinerary_ExhibitionActivityData" FromRole="PackageItinerary" ToRole="ExhibitionActivityData" />
+          <NavigationProperty Name="Package" Relationship="Self.FK_PackageItinerary_Package" FromRole="PackageItinerary" ToRole="Package" />
+        </EntityType>
+        <EntityType Name="RoomData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="HallID" Type="Guid" Nullable="false" />
+          <Property Name="RoomName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CommonsCategory" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Floor" Type="Int32" Nullable="false" />
+          <Property Name="Extension" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="SpecialOpenNote" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CollectibleDatas" Relationship="Self.FK_CollectibleData_RoomData" FromRole="RoomData" ToRole="CollectibleData" />
+          <NavigationProperty Name="HallData" Relationship="Self.FK_RoomData_HallData" FromRole="RoomData" ToRole="HallData" />
+        </EntityType>
+        <EntityType Name="StaffData">
+          <Key>
+            <PropertyRef Name="AccountID" />
+          </Key>
+          <Property Name="AccountID" Type="Guid" Nullable="false" />
+          <Property Name="EmployeeNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="JobTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PreferedLanguage" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AccountData" Relationship="Self.FK_StaffData_AccountData" FromRole="StaffData" ToRole="AccountData" />
+          <NavigationProperty Name="HallWithStaffs" Relationship="Self.FK_HallWithStaff_StaffData" FromRole="StaffData" ToRole="HallWithStaff" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TravelAgencyData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="GovRegistrationCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tel" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OfficialWebsite" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TravelAgencyUserDatas" Relationship="Self.FK_TravelAgencyUserData_TravelAgencyData" FromRole="TravelAgencyData" ToRole="TravelAgencyUserData" />
+        </EntityType>
+        <EntityType Name="TravelAgencyUserData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="AccountID" Type="Guid" Nullable="false" />
+          <Property Name="TravelAgencyID" Type="Guid" Nullable="false" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AccountData" Relationship="Self.FK_TravelAgencyUserData_AccountData" FromRole="TravelAgencyUserData" ToRole="AccountData" />
+          <NavigationProperty Name="GroupRegistrations" Relationship="Self.FK_GroupRegistration_TravelAgencyUserData" FromRole="TravelAgencyUserData" ToRole="GroupRegistration" />
+          <NavigationProperty Name="TravelAgencyData" Relationship="Self.FK_TravelAgencyUserData_TravelAgencyData" FromRole="TravelAgencyUserData" ToRole="TravelAgencyData" />
+        </EntityType>
+        <Association Name="FK_StaffData_AccountData">
+          <End Role="AccountData" Type="Self.AccountData" Multiplicity="1" />
+          <End Role="StaffData" Type="Self.StaffData" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="AccountData">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StaffData">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TravelAgencyUserData_AccountData">
+          <End Role="AccountData" Type="Self.AccountData" Multiplicity="1" />
+          <End Role="TravelAgencyUserData" Type="Self.TravelAgencyUserData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccountData">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TravelAgencyUserData">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CollectibleData_RoomData">
+          <End Role="RoomData" Type="Self.RoomData" Multiplicity="1" />
+          <End Role="CollectibleData" Type="Self.CollectibleData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoomData">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CollectibleData">
+              <PropertyRef Name="RoomID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PackageItinerary_ExhibitionActivityData">
+          <End Role="ExhibitionActivityData" Type="Self.ExhibitionActivityData" Multiplicity="1" />
+          <End Role="PackageItinerary" Type="Self.PackageItinerary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExhibitionActivityData">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PackageItinerary">
+              <PropertyRef Name="ExhibitionActivityDataID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Visitors_FreeQualification">
+          <End Role="FreeQualification" Type="Self.FreeQualification" Multiplicity="0..1" />
+          <End Role="GroupRegistrationVisitors" Type="Self.GroupRegistrationVisitor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FreeQualification">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GroupRegistrationVisitors">
+              <PropertyRef Name="FreeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupRegistration_Package">
+          <End Role="Package" Type="Self.Package" Multiplicity="1" />
+          <End Role="GroupRegistration" Type="Self.GroupRegistration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Package">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GroupRegistration">
+              <PropertyRef Name="PackageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupRegistration_TravelAgencyUserData">
+          <End Role="TravelAgencyUserData" Type="Self.TravelAgencyUserData" Multiplicity="1" />
+          <End Role="GroupRegistration" Type="Self.GroupRegistration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TravelAgencyUserData">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GroupRegistration">
+              <PropertyRef Name="TravelAgencyUserDataID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Visitors_GroupRegistration">
+          <End Role="GroupRegistration" Type="Self.GroupRegistration" Multiplicity="1" />
+          <End Role="GroupRegistrationVisitors" Type="Self.GroupRegistrationVisitor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupRegistration">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GroupRegistrationVisitors">
+              <PropertyRef Name="GroupRegistrationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HallWithStaff_HallData">
+          <End Role="HallData" Type="Self.HallData" Multiplicity="1" />
+          <End Role="HallWithStaff" Type="Self.HallWithStaff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HallData">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HallWithStaff">
+              <PropertyRef Name="HallID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoomData_HallData">
+          <End Role="HallData" Type="Self.HallData" Multiplicity="1" />
+          <End Role="RoomData" Type="Self.RoomData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HallData">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RoomData">
+              <PropertyRef Name="HallID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HallWithStaff_StaffData">
+          <End Role="StaffData" Type="Self.StaffData" Multiplicity="1" />
+          <End Role="HallWithStaff" Type="Self.HallWithStaff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StaffData">
+              <PropertyRef Name="AccountID" />
+            </Principal>
+            <Dependent Role="HallWithStaff">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PackageItinerary_Package">
+          <End Role="Package" Type="Self.Package" Multiplicity="1" />
+          <End Role="PackageItinerary" Type="Self.PackageItinerary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Package">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PackageItinerary">
+              <PropertyRef Name="PackageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TravelAgencyUserData_TravelAgencyData">
+          <End Role="TravelAgencyData" Type="Self.TravelAgencyData" Multiplicity="1" />
+          <End Role="TravelAgencyUserData" Type="Self.TravelAgencyUserData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TravelAgencyData">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TravelAgencyUserData">
+              <PropertyRef Name="TravelAgencyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ExhibitionActivityWithHall">
+          <End Role="ExhibitionActivityData" Type="Self.ExhibitionActivityData" Multiplicity="*" />
+          <End Role="HallData" Type="Self.HallData" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="LouvreGRS_ANMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AccountDatas" EntityType="Self.AccountData" />
+          <EntitySet Name="CollectibleDatas" EntityType="Self.CollectibleData" />
+          <EntitySet Name="ExhibitionActivityDatas" EntityType="Self.ExhibitionActivityData" />
+          <EntitySet Name="FreeQualifications" EntityType="Self.FreeQualification" />
+          <EntitySet Name="GroupRegistrations" EntityType="Self.GroupRegistration" />
+          <EntitySet Name="GroupRegistrationVisitors" EntityType="Self.GroupRegistrationVisitor" />
+          <EntitySet Name="HallDatas" EntityType="Self.HallData" />
+          <EntitySet Name="HallWithStaffs" EntityType="Self.HallWithStaff" />
+          <EntitySet Name="Packages" EntityType="Self.Package" />
+          <EntitySet Name="PackageItineraries" EntityType="Self.PackageItinerary" />
+          <EntitySet Name="RoomDatas" EntityType="Self.RoomData" />
+          <EntitySet Name="StaffDatas" EntityType="Self.StaffData" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TravelAgencyDatas" EntityType="Self.TravelAgencyData" />
+          <EntitySet Name="TravelAgencyUserDatas" EntityType="Self.TravelAgencyUserData" />
+          <AssociationSet Name="FK_StaffData_AccountData" Association="Self.FK_StaffData_AccountData">
+            <End Role="AccountData" EntitySet="AccountDatas" />
+            <End Role="StaffData" EntitySet="StaffDatas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TravelAgencyUserData_AccountData" Association="Self.FK_TravelAgencyUserData_AccountData">
+            <End Role="AccountData" EntitySet="AccountDatas" />
+            <End Role="TravelAgencyUserData" EntitySet="TravelAgencyUserDatas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CollectibleData_RoomData" Association="Self.FK_CollectibleData_RoomData">
+            <End Role="RoomData" EntitySet="RoomDatas" />
+            <End Role="CollectibleData" EntitySet="CollectibleDatas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PackageItinerary_ExhibitionActivityData" Association="Self.FK_PackageItinerary_ExhibitionActivityData">
+            <End Role="ExhibitionActivityData" EntitySet="ExhibitionActivityDatas" />
+            <End Role="PackageItinerary" EntitySet="PackageItineraries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Visitors_FreeQualification" Association="Self.FK_Visitors_FreeQualification">
+            <End Role="FreeQualification" EntitySet="FreeQualifications" />
+            <End Role="GroupRegistrationVisitors" EntitySet="GroupRegistrationVisitors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupRegistration_Package" Association="Self.FK_GroupRegistration_Package">
+            <End Role="Package" EntitySet="Packages" />
+            <End Role="GroupRegistration" EntitySet="GroupRegistrations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupRegistration_TravelAgencyUserData" Association="Self.FK_GroupRegistration_TravelAgencyUserData">
+            <End Role="TravelAgencyUserData" EntitySet="TravelAgencyUserDatas" />
+            <End Role="GroupRegistration" EntitySet="GroupRegistrations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Visitors_GroupRegistration" Association="Self.FK_Visitors_GroupRegistration">
+            <End Role="GroupRegistration" EntitySet="GroupRegistrations" />
+            <End Role="GroupRegistrationVisitors" EntitySet="GroupRegistrationVisitors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HallWithStaff_HallData" Association="Self.FK_HallWithStaff_HallData">
+            <End Role="HallData" EntitySet="HallDatas" />
+            <End Role="HallWithStaff" EntitySet="HallWithStaffs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoomData_HallData" Association="Self.FK_RoomData_HallData">
+            <End Role="HallData" EntitySet="HallDatas" />
+            <End Role="RoomData" EntitySet="RoomDatas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HallWithStaff_StaffData" Association="Self.FK_HallWithStaff_StaffData">
+            <End Role="StaffData" EntitySet="StaffDatas" />
+            <End Role="HallWithStaff" EntitySet="HallWithStaffs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PackageItinerary_Package" Association="Self.FK_PackageItinerary_Package">
+            <End Role="Package" EntitySet="Packages" />
+            <End Role="PackageItinerary" EntitySet="PackageItineraries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TravelAgencyUserData_TravelAgencyData" Association="Self.FK_TravelAgencyUserData_TravelAgencyData">
+            <End Role="TravelAgencyData" EntitySet="TravelAgencyDatas" />
+            <End Role="TravelAgencyUserData" EntitySet="TravelAgencyUserDatas" />
+          </AssociationSet>
+          <AssociationSet Name="ExhibitionActivityWithHall" Association="Self.ExhibitionActivityWithHall">
+            <End Role="ExhibitionActivityData" EntitySet="ExhibitionActivityDatas" />
+            <End Role="HallData" EntitySet="HallDatas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LouvreGRS_ANMModelStoreContainer" CdmEntityContainer="LouvreGRS_ANMEntities">
+          <EntitySetMapping Name="AccountDatas">
+            <EntityTypeMapping TypeName="LouvreGRS_ANMModel.AccountData">
+              <MappingFragment StoreEntitySet="AccountData">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="LoginAccount" ColumnName="LoginAccount" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CollectibleDatas">
+            <EntityTypeMapping TypeName="LouvreGRS_ANMModel.CollectibleData">
+              <MappingFragment StoreEntitySet="CollectibleData">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+                <ScalarProperty Name="WikiCode" ColumnName="WikiCode" />
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+                <ScalarProperty Name="Wikidata" ColumnName="Wikidata" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Label" ColumnName="Label" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="DateOfEstab" ColumnName="DateOfEstab" />
+                <ScalarProperty Name="Nature" ColumnName="Nature" />
+                <ScalarProperty Name="RegisterNumber" ColumnName="RegisterNumber" />
+                <ScalarProperty Name="JocondeEncoding" ColumnName="JocondeEncoding" />
+                <ScalarProperty Name="AtlasIndexNumber" ColumnName="AtlasIndexNumber" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExhibitionActivityDatas">
+            <EntityTypeMapping TypeName="LouvreGRS_ANMModel.ExhibitionActivityData">
+              <MappingFragment StoreEntitySet="ExhibitionActivityData">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ActivityCode" ColumnName="ActivityCode" />
+                <ScalarProperty Name="DisplayTitle" ColumnName="DisplayTitle" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="ExtensionClassify" ColumnName="ExtensionClassify" />
+                <ScalarProperty Name="VisitLimitationPerDay" ColumnName="VisitLimitationPerDay" />
+                <ScalarProperty Name="SuggestVisitingHours" ColumnName="SuggestVisitingHours" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FreeQualifications">
+            <EntityTypeMapping TypeName="LouvreGRS_ANMModel.FreeQualification">
+              <MappingFragment StoreEntitySet="FreeQualification">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FreeItem" ColumnName="FreeItem" />
+                <ScalarProperty Name="FreeClassify" ColumnName="FreeClassify" />
+                <ScalarProperty Name="IsValid" ColumnName="IsValid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupRegistrations">
+            <EntityTypeMapping TypeName="LouvreGRS_ANMModel.GroupRegistration">
+              <MappingFragment StoreEntitySet="GroupRegistration">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PackageID" ColumnName="PackageID" />
+                <ScalarProperty Name="Minors" ColumnName="Minors" />
+                <ScalarProperty Name="Adults" ColumnName="Adults" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="VisitLanguage" ColumnName="VisitLanguage" />
+                <ScalarProperty Name="VisitDate" ColumnName="VisitDate" />
+                <ScalarProperty Name="VisitStartTime" ColumnName="VisitStartTime" />
+                <ScalarProperty Name="VisitEndTime" ColumnName="VisitEndTime" />
+                <ScalarProperty Name="TravelAgencyUserDataID" ColumnName="TravelAgencyUserDataID" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="PaymentTime" ColumnName="PaymentTime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupRegistrationVisitors">
+            <EntityTypeMapping TypeName="LouvreGRS_ANMModel.GroupRegistrationVisitor">
+              <MappingFragment StoreEntitySet="GroupRegistrationVisitors">
+                <ScalarProperty Name="GroupRegistrationID" ColumnName="GroupRegistrationID" />
+                <ScalarProperty Name="No" ColumnName="No" />
+                <ScalarProperty Name="VisitorID" ColumnName="VisitorID" />
+                <ScalarProperty Name="VisitorName" ColumnName="VisitorName" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+                <ScalarProperty Name="EMail" ColumnName="EMail" />
+                <ScalarProperty Name="FreeID" ColumnName="FreeID" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HallDatas">
+            <EntityTypeMapping TypeName="LouvreGRS_ANMModel.HallData">
+              <MappingFragment StoreEntitySet="HallData">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="KnownName" ColumnName="KnownName" />
+                <ScalarProperty Name="Introduction" ColumnName="Introduction" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
+                <ScalarProperty Name="CollectionCount" ColumnName="CollectionCount" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HallWithStaffs">
+            <EntityTypeMapping TypeName="LouvreGRS_ANMModel.HallWithStaff">
+              <MappingFragment StoreEntitySet="HallWithStaff">
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="HallID" ColumnName="HallID" />
+                <ScalarProperty Name="Responsibility" ColumnName="Responsibility" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Packages">
+            <EntityTypeMapping TypeName="LouvreGRS_ANMModel.Package">
+              <MappingFragment StoreEntitySet="Package">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PackageName" ColumnName="PackageName" />
+                <ScalarProperty Name="Features" ColumnName="Features" />
+                <ScalarProperty Name="VisitTime" ColumnName="VisitTime" />
+                <ScalarProperty Name="TotalHours" ColumnName="TotalHours" />
+                <ScalarProperty Name="FeePerPerson" ColumnName="FeePerPerson" />
+                <ScalarProperty Name="Maximum" ColumnName="Maximum" />
+                <ScalarProperty Name="IsValid" ColumnName="IsValid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PackageItineraries">
+            <EntityTypeMapping TypeName="LouvreGRS_ANMModel.PackageItinerary">
+              <MappingFragment StoreEntitySet="PackageItinerary">
+                <ScalarProperty Name="PackageID" ColumnName="PackageID" />
+                <ScalarProperty Name="ExhibitionActivityDataID" ColumnName="ExhibitionActivityDataID" />
+                <ScalarProperty Name="VisitOrder" ColumnName="VisitOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoomDatas">
+            <EntityTypeMapping TypeName="LouvreGRS_ANMModel.RoomData">
+              <MappingFragment StoreEntitySet="RoomData">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="HallID" ColumnName="HallID" />
+                <ScalarProperty Name="RoomName" ColumnName="RoomName" />
+                <ScalarProperty Name="CommonsCategory" ColumnName="CommonsCategory" />
+                <ScalarProperty Name="Floor" ColumnName="Floor" />
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="SpecialOpenNote" ColumnName="SpecialOpenNote" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StaffDatas">
+            <EntityTypeMapping TypeName="LouvreGRS_ANMModel.StaffData">
+              <MappingFragment StoreEntitySet="StaffData">
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="EmployeeNumber" ColumnName="EmployeeNumber" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="PreferedLanguage" ColumnName="PreferedLanguage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="LouvreGRS_ANMModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TravelAgencyDatas">
+            <EntityTypeMapping TypeName="LouvreGRS_ANMModel.TravelAgencyData">
+              <MappingFragment StoreEntitySet="TravelAgencyData">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="GovRegistrationCode" ColumnName="GovRegistrationCode" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="OfficialWebsite" ColumnName="OfficialWebsite" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TravelAgencyUserDatas">
+            <EntityTypeMapping TypeName="LouvreGRS_ANMModel.TravelAgencyUserData">
+              <MappingFragment StoreEntitySet="TravelAgencyUserData">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="TravelAgencyID" ColumnName="TravelAgencyID" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="ExhibitionActivityWithHall" TypeName="LouvreGRS_ANMModel.ExhibitionActivityWithHall" StoreEntitySet="ExhibitionActivityWithHall">
+            <EndProperty Name="ExhibitionActivityData">
+              <ScalarProperty Name="ID" ColumnName="ActivityID" />
+            </EndProperty>
+            <EndProperty Name="HallData">
+              <ScalarProperty Name="ID" ColumnName="HallID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

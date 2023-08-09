@@ -1,0 +1,474 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Competition.Program</name>
+    </assembly>
+    <members>
+        <member name="T:Compition.Program.Api.ApiBootstraper">
+            <summary>
+            API 站台啟動器
+            </summary>
+        </member>
+        <member name="M:Compition.Program.Api.ApiBootstraper.StartWebApplicationAsync">
+            <summary>
+            啟用 Web 應用程式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Compition.Program.Api.ApiBootstraper.StopWebApplicationAsync">
+            <summary>
+            停止 Web 應用程式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Compition.Program.Api.ApiBootstraper.WebApplication">
+            <summary>
+            設定或取得 Web 應用程式
+            </summary>
+        </member>
+        <member name="P:Compition.Program.Api.ApiBootstraper.Url">
+            <summary>
+            取得或設定應用程式 Url
+            </summary>
+        </member>
+        <member name="P:Compition.Program.Api.ApiBootstraper.LogStateThreadSafeObservableCollection">
+            <summary>
+            取得呼叫歷程記錄
+            </summary>
+        </member>
+        <member name="P:Compition.Program.Api.ApiBootstraper.MaxLogStateCount">
+            <summary>
+            取得最大紀錄數
+            </summary>
+        </member>
+        <member name="P:Compition.Program.Api.ApiBootstraper.IsApplicationStarted">
+            <summary>
+            取得應用程式是否已經啟動[值變更時引發通知]
+            </summary>
+        </member>
+        <member name="T:Compition.Program.Api.Controllers.ApiControllerBase">
+            <summary>
+            API 控制器基底型別
+            </summary>
+        </member>
+        <member name="P:Compition.Program.Api.Controllers.ApiControllerBase.ApiBootstraper">
+            <summary>
+            取得 API 專用啟動器
+            </summary>
+        </member>
+        <member name="T:Compition.Program.Api.Controllers.UserVoiceController">
+            <summary>
+            處理使用者意見回饋的相關邏輯
+            </summary>
+        </member>
+        <member name="M:Compition.Program.Api.Controllers.UserVoiceController.#ctor(Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            初始化處理使用者意見回饋的相關邏輯
+            </summary>
+            <param name="loggerFactory"></param>
+        </member>
+        <member name="M:Compition.Program.Api.Controllers.UserVoiceController.GetRequestToken">
+            <summary>
+            取得使用者意見回饋的授權權杖 (Request Token)，重新取得 Token 時，前一次取得的 Token 將強制失效。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Compition.Program.Api.Controllers.UserVoiceController.ApplyUserVoice(Compition.Program.Api.Models.Request.UserVioce.ApplyUserVoiceRequest)">
+            <summary>
+            接收使用者意見回饋，Token 僅限一次 API 呼叫使用，不論成功與否，Token 皆會於本次呼叫後失效。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Compition.Program.Api.Controllers.UserVoiceController.LoggerFactory">
+            <summary>
+            取得記錄檔工廠
+            </summary>
+        </member>
+        <member name="P:Compition.Program.Api.Hosting.StartupHostedService.IsStarted">
+            <summary>
+            取得是否已經啟動
+            </summary>
+        </member>
+        <member name="T:Compition.Program.Api.Infos.UserVoiceInfo">
+            <summary>
+            用於使用者意見回饋資訊的類別
+            </summary>
+        </member>
+        <member name="M:Compition.Program.Api.Infos.UserVoiceInfo.#ctor">
+            <summary>
+            初始化用於使用者意見回饋資訊的類別
+            </summary>
+        </member>
+        <member name="P:Compition.Program.Api.Infos.UserVoiceInfo.AppliedContent">
+            <summary>
+            設定或取得已提交的使用者意見回饋。[值變更時引發通知]
+            </summary>
+        </member>
+        <member name="P:Compition.Program.Api.Infos.UserVoiceInfo.EarliestApplyDateTimeOffset">
+            <summary>
+            設定或取得最早可接受回應時間。[值變更時引發通知]
+            </summary>
+        </member>
+        <member name="P:Compition.Program.Api.Infos.UserVoiceInfo.Score">
+            <summary>
+            設定或取得評分。[值變更時引發通知]
+            </summary>
+        </member>
+        <member name="P:Compition.Program.Api.Infos.UserVoiceInfo.RequestToken">
+            <summary>
+            設定或取得接收請求使用的權杖。[值變更時引發通知]
+            </summary>
+        </member>
+        <member name="T:Compition.Program.Api.Models.Request.UserVioce.ApplyUserVoiceRequest">
+            <summary>
+            接收使用者意見回饋的請求
+            </summary>
+        </member>
+        <member name="P:Compition.Program.Api.Models.Request.UserVioce.ApplyUserVoiceRequest.RequestToken">
+            <summary>
+            使用者意見回饋的授權權杖
+            </summary>
+        </member>
+        <member name="P:Compition.Program.Api.Models.Request.UserVioce.ApplyUserVoiceRequest.Content">
+            <summary>
+            回饋意見的內容
+            </summary>
+        </member>
+        <member name="P:Compition.Program.Api.Models.Request.UserVioce.ApplyUserVoiceRequest.Score">
+            <summary>
+            滿意度分數，1 ~ 5 分
+            </summary>
+        </member>
+        <member name="T:Compition.Program.Api.Models.Response.UserVioce.ApplyUserVoiceResponse">
+            <summary>
+            提交使用者意見回饋的回應資料
+            </summary>
+        </member>
+        <member name="T:Compition.Program.Api.Models.Response.UserVioce.GetRequestTokenResponse">
+            <summary>
+            使用者意見回饋的授權權杖 (Request Token) 回應資料
+            </summary>
+        </member>
+        <member name="P:Compition.Program.Api.Models.Response.UserVioce.GetRequestTokenResponse.RequestToken">
+            <summary>
+            關於傳送使用者意見回饋的授權權杖
+            </summary>
+        </member>
+        <member name="P:Compition.Program.Api.Models.Response.UserVioce.GetRequestTokenResponse.EarliestApplyTime">
+            <summary>
+            最早伺服器可以接收使用者意見回饋的時間
+            </summary>
+        </member>
+        <member name="T:Compition.Program.App">
+            <summary>
+            Interaction logic for App.xaml
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:Compition.Program.App.OnExit(System.Windows.ExitEventArgs)">
+            <summary>
+            Occurs when the application exits.
+            </summary>
+            <param name="e">A <see cref="T:System.Windows.ExitEventArgs"/> that contains data related to this event.</param>
+        </member>
+        <member name="P:Compition.Program.App.SettintCollectionFactoryInternal">
+            <summary>
+            取得應用程式唯一的設定檔集合工廠
+            </summary>
+        </member>
+        <member name="P:Compition.Program.App.TimerManagerInetrnal">
+            <summary>
+            取得全域使用的排程器管理物件
+            </summary>
+        </member>
+        <member name="M:Compition.Program.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:Compition.Program.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:Compition.Program.Converters.BoolToVisibilityConverter">
+            <summary>
+            將<see cref="T:System.Boolean"/>轉換為[<see cref="F:System.Windows.Visibility.Collapsed"/>]之<see cref="T:System.String"/>
+            </summary>
+        </member>
+        <member name="M:Compition.Program.Converters.BoolToVisibilityConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter">若 true 為 Visible，則輸入 true；若 true 為 Collapsed，則輸入 false</param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Compition.Program.Converters.BoolToVisibilityConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter">若 Visible 為 true，則輸入 true；若 Collapsed 為 true，則輸入 false</param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Compition.Program.Enums.ApplicationSettingEnum">
+            <summary>
+            應用程式設定檔列舉
+            </summary>
+        </member>
+        <member name="F:Compition.Program.Enums.ApplicationSettingEnum.ApiBootstraper">
+            <summary>
+            API 站台啟動器，屬於<see cref="T:Compition.Program.Api.ApiBootstraper"/>
+            </summary>
+        </member>
+        <member name="F:Compition.Program.Enums.ApplicationSettingEnum.UserVoiceInfo">
+            <summary>
+            初始化使用者回饋資料的資訊，屬於<see cref="T:Compition.Program.Api.Infos.UserVoiceInfo"/>
+            </summary>
+        </member>
+        <member name="T:Compition.Program.Enums.LoggingMessageType">
+            <summary>
+            紀錄的訊息類型
+            </summary>
+        </member>
+        <member name="F:Compition.Program.Enums.LoggingMessageType.General">
+            <summary>
+            一般訊息
+            </summary>
+        </member>
+        <member name="F:Compition.Program.Enums.LoggingMessageType.ThirdPartyHttpRequest">
+            <summary>
+            第三方HTTP請求
+            </summary>
+        </member>
+        <member name="F:Compition.Program.Enums.LoggingMessageType.ThirdPartyHttpResponse">
+            <summary>
+            第三方HTTP回應
+            </summary>
+        </member>
+        <member name="F:Compition.Program.Enums.LoggingMessageType.ThirdPartyHttpError">
+            <summary>
+            第三方HTTP錯誤
+            </summary>
+        </member>
+        <member name="F:Compition.Program.Enums.LoggingMessageType.ThirdPartySoapRequest">
+            <summary>
+            第三方SOAP請求
+            </summary>
+        </member>
+        <member name="F:Compition.Program.Enums.LoggingMessageType.ThirdPartySoapResponse">
+            <summary>
+            第三方SOAP回應
+            </summary>
+        </member>
+        <member name="F:Compition.Program.Enums.LoggingMessageType.ThirdPartySoapError">
+            <summary>
+            第三方SOAP錯誤
+            </summary>
+        </member>
+        <member name="F:Compition.Program.Enums.LoggingMessageType.WebApiRequest">
+            <summary>
+            Web API 請求
+            </summary>
+        </member>
+        <member name="F:Compition.Program.Enums.LoggingMessageType.WebApiResponse">
+            <summary>
+            Web API 回應
+            </summary>
+        </member>
+        <member name="F:Compition.Program.Enums.LoggingMessageType.WebApiError">
+            <summary>
+            Web API 錯誤
+            </summary>
+        </member>
+        <member name="T:Compition.Program.Enums.LoggingScope">
+            <summary>
+            紀錄所發生的位置
+            </summary>
+        </member>
+        <member name="F:Compition.Program.Enums.LoggingScope.API">
+            <summary>
+            API
+            </summary>
+        </member>
+        <member name="F:Compition.Program.Enums.LoggingScope.FrontEnd">
+            <summary>
+            前台
+            </summary>
+        </member>
+        <member name="T:Compition.Program.Enums.LoggingSystemScope">
+            <summary>
+            記錄檔所發生的系統
+            </summary>
+        </member>
+        <member name="F:Compition.Program.Enums.LoggingSystemScope.Local">
+            <summary>
+            本地系統，非第三方系統都屬於此種系統
+            </summary>
+        </member>
+        <member name="T:Compition.Program.Enums.ResultCodeSettingEnum">
+            <summary>
+            回傳訊息列舉
+            </summary>
+        </member>
+        <member name="F:Compition.Program.Enums.ResultCodeSettingEnum.Success">
+            <summary>
+            成功
+            </summary>
+        </member>
+        <member name="F:Compition.Program.Enums.ResultCodeSettingEnum.InvalidArgument">
+            <summary>
+            參數驗證錯誤
+            </summary>
+        </member>
+        <member name="F:Compition.Program.Enums.ResultCodeSettingEnum.UnrecognizedLanguage">
+            <summary>
+            無法辨識的語系
+            </summary>
+        </member>
+        <member name="F:Compition.Program.Enums.ResultCodeSettingEnum.FieldRequired">
+            <summary>
+            欄位為必填
+            </summary>
+        </member>
+        <member name="F:Compition.Program.Enums.ResultCodeSettingEnum.InvalidRange">
+            <summary>
+            值區間不符規定
+            </summary>
+        </member>
+        <member name="F:Compition.Program.Enums.ResultCodeSettingEnum.ItemRequired">
+            <summary>
+            至少需要包含一個元素
+            </summary>
+        </member>
+        <member name="F:Compition.Program.Enums.ResultCodeSettingEnum.ContentTooLong">
+            <summary>
+            提交的內容長度過長
+            </summary>
+        </member>
+        <member name="F:Compition.Program.Enums.ResultCodeSettingEnum.InvalidRequestToken">
+            <summary>
+            無效的 Request Token
+            </summary>
+        </member>
+        <member name="F:Compition.Program.Enums.ResultCodeSettingEnum.RequestTimeTooEarly">
+            <summary>
+            提交時間過早
+            </summary>
+        </member>
+        <member name="F:Compition.Program.Enums.ResultCodeSettingEnum.SystemError">
+            <summary>
+            系統錯誤
+            </summary>
+        </member>
+        <member name="T:Compition.Program.Extensions.LoggingExtensions">
+            <summary>
+            處理紀錄檔的靜態擴充類別
+            </summary>
+        </member>
+        <member name="M:Compition.Program.Extensions.LoggingExtensions.Log(Microsoft.Extensions.Logging.ILoggerFactory,Compition.Program.Logging.LogState)">
+            <summary>
+            紀錄偵錯資料
+            </summary>
+            <param name="loggerFactory"></param>
+            <param name="logState"></param>
+        </member>
+        <member name="P:Compition.Program.Logging.ConsoleLoggerProvider.DefaultLogger">
+            <summary>
+            設定或取得當無法將 category name 對應到 TScope 時，預設使用的 Logger
+            </summary>
+        </member>
+        <member name="P:Compition.Program.Logging.LogState.CreatedDateTime">
+            <summary>
+            設定或取得資料建立時間
+            </summary>
+        </member>
+        <member name="T:Compition.Program.MainWindow">
+            <summary>
+            MainWindow.xaml 的互動邏輯
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="M:Compition.Program.MainWindow.ShowPrompt(ActiproSoftware.Windows.Controls.UserPromptControl)">
+            <summary>
+            Show the prompt as an overlay.
+            </summary>
+            <param name="userPromptControl">The user prompt control to display.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> of type <see cref="T:ActiproSoftware.Windows.Controls.UserPromptStandardResult"/> which, when completed, will define the result of interacting with the user prompt.</returns>
+        </member>
+        <member name="M:Compition.Program.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:Compition.Program.PageModels.ApiSite.SiteConfigurationPageModel.ApiBootstraper">
+            <summary>
+            設定或取得 API 啟動器
+            </summary>
+        </member>
+        <member name="T:Compition.Program.Pages.ApiSite.Logging">
+            <summary>
+            Logging.xaml 的互動邏輯
+            </summary>
+        </member>
+        <member name="M:Compition.Program.Pages.ApiSite.Logging.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Compition.Program.Pages.ApiSite.SiteConfiguration">
+            <summary>
+            SiteConfiguration.xaml 的互動邏輯
+            </summary>
+        </member>
+        <member name="M:Compition.Program.Pages.ApiSite.SiteConfiguration.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:Compition.Program.Settings.SettintCollectionFactoryInternal.ApplicationSettingCollection">
+            <summary>
+            取得應用程式設定檔集合
+            </summary>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
+        </member>
+    </members>
+</doc>

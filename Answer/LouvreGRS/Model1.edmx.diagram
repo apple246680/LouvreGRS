@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8545bef3bdc449539bd40a1aae4d6cf7" Name="Diagram1">
+        <EntityTypeShape EntityType="LouvreGRS_ANMModel.AccountData" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LouvreGRS_ANMModel.CollectibleData" Width="1.5" PointX="7.5" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LouvreGRS_ANMModel.ExhibitionActivityData" Width="1.5" PointX="0.75" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LouvreGRS_ANMModel.FreeQualification" Width="1.5" PointX="5.25" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LouvreGRS_ANMModel.GroupRegistration" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LouvreGRS_ANMModel.GroupRegistrationVisitor" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LouvreGRS_ANMModel.HallData" Width="1.5" PointX="3" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LouvreGRS_ANMModel.HallWithStaff" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LouvreGRS_ANMModel.Package" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LouvreGRS_ANMModel.PackageItinerary" Width="1.5" PointX="8.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LouvreGRS_ANMModel.RoomData" Width="1.5" PointX="5.25" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LouvreGRS_ANMModel.StaffData" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LouvreGRS_ANMModel.sysdiagram" Width="1.5" PointX="7.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LouvreGRS_ANMModel.TravelAgencyData" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LouvreGRS_ANMModel.TravelAgencyUserData" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
+        <AssociationConnector Association="LouvreGRS_ANMModel.FK_StaffData_AccountData" ManuallyRouted="false" />
+        <AssociationConnector Association="LouvreGRS_ANMModel.FK_TravelAgencyUserData_AccountData" ManuallyRouted="false" />
+        <AssociationConnector Association="LouvreGRS_ANMModel.FK_CollectibleData_RoomData" ManuallyRouted="false" />
+        <AssociationConnector Association="LouvreGRS_ANMModel.FK_PackageItinerary_ExhibitionActivityData" ManuallyRouted="false" />
+        <AssociationConnector Association="LouvreGRS_ANMModel.FK_Visitors_FreeQualification" ManuallyRouted="false" />
+        <AssociationConnector Association="LouvreGRS_ANMModel.FK_GroupRegistration_Package" ManuallyRouted="false" />
+        <AssociationConnector Association="LouvreGRS_ANMModel.FK_GroupRegistration_TravelAgencyUserData" ManuallyRouted="false" />
+        <AssociationConnector Association="LouvreGRS_ANMModel.FK_Visitors_GroupRegistration" ManuallyRouted="false" />
+        <AssociationConnector Association="LouvreGRS_ANMModel.FK_HallWithStaff_HallData" ManuallyRouted="false" />
+        <AssociationConnector Association="LouvreGRS_ANMModel.FK_RoomData_HallData" ManuallyRouted="false" />
+        <AssociationConnector Association="LouvreGRS_ANMModel.FK_HallWithStaff_StaffData" ManuallyRouted="false" />
+        <AssociationConnector Association="LouvreGRS_ANMModel.FK_PackageItinerary_Package" ManuallyRouted="false" />
+        <AssociationConnector Association="LouvreGRS_ANMModel.FK_TravelAgencyUserData_TravelAgencyData" ManuallyRouted="false" />
+        <AssociationConnector Association="LouvreGRS_ANMModel.ExhibitionActivityWithHall" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
