@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,22 +19,28 @@ namespace LouvreGRS
             InitializeComponent();
         }
         LouvreGRS_ANMEntities entities = new LouvreGRS_ANMEntities();
-        public void Showdata()
+        DataTable datatable = new DataTable
         {
-            var datatable=new DataTable();
-            datatable.Columns.Add("登入帳號");
-            datatable.Columns.Add("姓名");
-            datatable.Columns.Add("是否為館內人員");
-            datatable.Columns.Add("所屬旅行社");
-            datatable.Columns.Add("角色");
-            datatable.Columns.Add("帳號狀態");
-            foreach (var item in entities.AccountDatas)
+            Columns =
+            {
+                new DataColumn("登入帳號"),
+                new DataColumn("姓名"),
+                new DataColumn("是否為館內人員"),
+                new DataColumn("所屬旅行社"),
+                new DataColumn("角色"),
+                new DataColumn("帳號狀態")
+            }
+        };
+        public async Task Showdata()
+        {
+            var accountDatas = await entities.AccountDatas.ToListAsync();
+            foreach (var item in accountDatas)
             {
                 string isstaff = "";
                 string travel = "";
                 string job = "";
                 string Status = "";
-                var a = entities.TravelAgencyUserDatas.FirstOrDefault(x => x.AccountID == item.ID);
+                var a = await entities.TravelAgencyUserDatas.FirstOrDefaultAsync(x => x.AccountID == item.ID);
                 if (a == null)
                 {
                     isstaff = "是";
@@ -54,11 +62,54 @@ namespace LouvreGRS
                     Status = "關閉";
                 datatable.Rows.Add(item.LoginAccount, $"{item.FirstName} {item.LastName}", isstaff, travel, job, Status);
             }
-            AccountViewAndFilterDataGridView.DataSource = datatable;
+            AccountViewAndFilterDataGridView.Invoke(new Action(() => { AccountViewAndFilterDataGridView.DataSource = datatable; }));
         }
-        private void AccountViewAndFilter_Load(object sender, EventArgs e)
+        private async void AccountViewAndFilter_Load(object sender, EventArgs e)
         {
-            Showdata();
+            WaitLable.Visible = true;
+            await Showdata();
+            WaitLable.Visible = false;
+            IsstaffComobox.SelectedIndex = 0;
+            StatusComobox.SelectedIndex = 0;
+        }
+
+        private void FilterButton_Click(object sender, EventArgs e)
+        {
+                DataTable filteredDataTable = datatable;
+            if (!string.IsNullOrWhiteSpace(AccountFilterTextbox.Text))
+                filteredDataTable = filteredDataTable.Select($"登入帳號 = '{AccountFilterTextbox.Text}'").CopyToDataTable();
+            else
+            {
+                if (IsstaffComobox.SelectedIndex!=-1&& IsstaffComobox.SelectedIndex !=0)
+                {
+                    string a = IsstaffComobox.Text == "館內人員" ? "是" : "否";
+                    filteredDataTable = filteredDataTable.Select($"是否為館內人員 = '{a}'").CopyToDataTable();
+                }
+                if (StatusComobox.SelectedIndex!=-1&&StatusComobox.SelectedIndex!=0)
+                    filteredDataTable = filteredDataTable.Select($"帳號狀態 = '{StatusComobox.Text}'").CopyToDataTable();
+                if(SurnameTextbox.Text!="")
+                   filteredDataTable = filteredDataTable.Select($"姓名 LIKE '*{SurnameTextbox.Text}*'").CopyToDataTable();
+
+            }
+            AccountViewAndFilterDataGridView.DataSource = filteredDataTable;
+        }
+        private void AccountFilterTextbox_TextChanged(object sender, EventArgs e)
+        {
+            SurnameTextbox.Enabled = AccountFilterTextbox.Text == "";
+            IsstaffComobox.Enabled = AccountFilterTextbox.Text == "";
+            StatusComobox.Enabled = AccountFilterTextbox.Text == "";
+            if (AccountFilterTextbox.Text != "") {
+                SurnameTextbox.Text = string.Empty;
+                IsstaffComobox.SelectedIndex = -1;
+                StatusComobox.SelectedIndex = -1;
+            }
+            else
+            {
+                IsstaffComobox.SelectedIndex = 0;
+                StatusComobox.SelectedIndex = 0;
+            }
+            
         }
     }
 }
+

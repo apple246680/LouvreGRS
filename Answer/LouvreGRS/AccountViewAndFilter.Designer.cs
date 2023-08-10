@@ -31,23 +31,25 @@
             this.AccountViewAndFilterDataGridView = new System.Windows.Forms.DataGridView();
             this.FilterButton = new System.Windows.Forms.Button();
             this.AccountFilterLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.AccountFilterTextbox = new System.Windows.Forms.TextBox();
+            this.SurnameTextbox = new System.Windows.Forms.TextBox();
+            this.SurnameLabel = new System.Windows.Forms.Label();
+            this.IsstaffLabel = new System.Windows.Forms.Label();
+            this.StatusLabel = new System.Windows.Forms.Label();
+            this.IsstaffComobox = new System.Windows.Forms.ComboBox();
+            this.StatusComobox = new System.Windows.Forms.ComboBox();
+            this.WaitLable = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.AccountViewAndFilterDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // AccountViewAndFilterDataGridView
             // 
+            this.AccountViewAndFilterDataGridView.AllowUserToAddRows = false;
+            this.AccountViewAndFilterDataGridView.AllowUserToDeleteRows = false;
             this.AccountViewAndFilterDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AccountViewAndFilterDataGridView.Location = new System.Drawing.Point(1, 80);
             this.AccountViewAndFilterDataGridView.Name = "AccountViewAndFilterDataGridView";
+            this.AccountViewAndFilterDataGridView.ReadOnly = true;
             this.AccountViewAndFilterDataGridView.RowHeadersWidth = 51;
             this.AccountViewAndFilterDataGridView.RowTemplate.Height = 27;
             this.AccountViewAndFilterDataGridView.Size = new System.Drawing.Size(1151, 354);
@@ -62,6 +64,7 @@
             this.FilterButton.TabIndex = 1;
             this.FilterButton.Text = "Filter";
             this.FilterButton.UseVisualStyleBackColor = true;
+            this.FilterButton.Click += new System.EventHandler(this.FilterButton_Click);
             // 
             // AccountFilterLabel
             // 
@@ -73,112 +76,106 @@
             this.AccountFilterLabel.TabIndex = 2;
             this.AccountFilterLabel.Text = "帳號篩選";
             // 
-            // textBox1
+            // AccountFilterTextbox
             // 
-            this.textBox1.Font = new System.Drawing.Font("PMingLiU", 15F);
-            this.textBox1.Location = new System.Drawing.Point(17, 42);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(156, 37);
-            this.textBox1.TabIndex = 3;
+            this.AccountFilterTextbox.Font = new System.Drawing.Font("PMingLiU", 15F);
+            this.AccountFilterTextbox.Location = new System.Drawing.Point(17, 42);
+            this.AccountFilterTextbox.Name = "AccountFilterTextbox";
+            this.AccountFilterTextbox.Size = new System.Drawing.Size(156, 37);
+            this.AccountFilterTextbox.TabIndex = 3;
+            this.AccountFilterTextbox.TextChanged += new System.EventHandler(this.AccountFilterTextbox_TextChanged);
             // 
-            // textBox2
+            // SurnameTextbox
             // 
-            this.textBox2.Font = new System.Drawing.Font("PMingLiU", 15F);
-            this.textBox2.Location = new System.Drawing.Point(193, 42);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(156, 37);
-            this.textBox2.TabIndex = 5;
+            this.SurnameTextbox.Font = new System.Drawing.Font("PMingLiU", 15F);
+            this.SurnameTextbox.Location = new System.Drawing.Point(193, 42);
+            this.SurnameTextbox.Name = "SurnameTextbox";
+            this.SurnameTextbox.Size = new System.Drawing.Size(156, 37);
+            this.SurnameTextbox.TabIndex = 5;
             // 
-            // label1
+            // SurnameLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("PMingLiU", 15F);
-            this.label1.Location = new System.Drawing.Point(198, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 25);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "部分姓氏";
+            this.SurnameLabel.AutoSize = true;
+            this.SurnameLabel.Font = new System.Drawing.Font("PMingLiU", 15F);
+            this.SurnameLabel.Location = new System.Drawing.Point(198, 14);
+            this.SurnameLabel.Name = "SurnameLabel";
+            this.SurnameLabel.Size = new System.Drawing.Size(112, 25);
+            this.SurnameLabel.TabIndex = 4;
+            this.SurnameLabel.Text = "部分姓名";
             // 
-            // textBox3
+            // IsstaffLabel
             // 
-            this.textBox3.Font = new System.Drawing.Font("PMingLiU", 15F);
-            this.textBox3.Location = new System.Drawing.Point(370, 42);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(156, 37);
-            this.textBox3.TabIndex = 7;
+            this.IsstaffLabel.AutoSize = true;
+            this.IsstaffLabel.Font = new System.Drawing.Font("PMingLiU", 15F);
+            this.IsstaffLabel.Location = new System.Drawing.Point(606, 9);
+            this.IsstaffLabel.Name = "IsstaffLabel";
+            this.IsstaffLabel.Size = new System.Drawing.Size(112, 25);
+            this.IsstaffLabel.TabIndex = 8;
+            this.IsstaffLabel.Text = "人員別：";
             // 
-            // label2
+            // StatusLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("PMingLiU", 15F);
-            this.label2.Location = new System.Drawing.Point(375, 14);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 25);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "部分名字";
+            this.StatusLabel.AutoSize = true;
+            this.StatusLabel.Font = new System.Drawing.Font("PMingLiU", 15F);
+            this.StatusLabel.Location = new System.Drawing.Point(769, 13);
+            this.StatusLabel.Name = "StatusLabel";
+            this.StatusLabel.Size = new System.Drawing.Size(137, 25);
+            this.StatusLabel.TabIndex = 9;
+            this.StatusLabel.Text = "帳號狀態：";
             // 
-            // label3
+            // IsstaffComobox
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("PMingLiU", 15F);
-            this.label3.Location = new System.Drawing.Point(606, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(112, 25);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "人員別：";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("PMingLiU", 15F);
-            this.label4.Location = new System.Drawing.Point(769, 13);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(137, 25);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "帳號狀態：";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("PMingLiU", 15F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.IsstaffComobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.IsstaffComobox.Font = new System.Drawing.Font("PMingLiU", 15F);
+            this.IsstaffComobox.FormattingEnabled = true;
+            this.IsstaffComobox.Items.AddRange(new object[] {
             "全部",
             "館內人員",
             "旅行社人員"});
-            this.comboBox1.Location = new System.Drawing.Point(600, 41);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(150, 33);
-            this.comboBox1.TabIndex = 10;
+            this.IsstaffComobox.Location = new System.Drawing.Point(600, 41);
+            this.IsstaffComobox.Name = "IsstaffComobox";
+            this.IsstaffComobox.Size = new System.Drawing.Size(150, 33);
+            this.IsstaffComobox.TabIndex = 10;
             // 
-            // comboBox2
+            // StatusComobox
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.Font = new System.Drawing.Font("PMingLiU", 15F);
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.StatusComobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.StatusComobox.Font = new System.Drawing.Font("PMingLiU", 15F);
+            this.StatusComobox.FormattingEnabled = true;
+            this.StatusComobox.Items.AddRange(new object[] {
             "全部",
             "正常",
             "關閉"});
-            this.comboBox2.Location = new System.Drawing.Point(756, 41);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(150, 33);
-            this.comboBox2.TabIndex = 11;
+            this.StatusComobox.Location = new System.Drawing.Point(756, 41);
+            this.StatusComobox.Name = "StatusComobox";
+            this.StatusComobox.Size = new System.Drawing.Size(150, 33);
+            this.StatusComobox.TabIndex = 11;
+            // 
+            // WaitLable
+            // 
+            this.WaitLable.AutoSize = true;
+            this.WaitLable.BackColor = System.Drawing.Color.Transparent;
+            this.WaitLable.Font = new System.Drawing.Font("PMingLiU", 70F);
+            this.WaitLable.ForeColor = System.Drawing.Color.Red;
+            this.WaitLable.Location = new System.Drawing.Point(391, 187);
+            this.WaitLable.Name = "WaitLable";
+            this.WaitLable.Size = new System.Drawing.Size(401, 117);
+            this.WaitLable.TabIndex = 12;
+            this.WaitLable.Text = "請稍等";
             // 
             // AccountViewAndFilter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1154, 433);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.WaitLable);
+            this.Controls.Add(this.StatusComobox);
+            this.Controls.Add(this.IsstaffComobox);
+            this.Controls.Add(this.StatusLabel);
+            this.Controls.Add(this.IsstaffLabel);
+            this.Controls.Add(this.SurnameTextbox);
+            this.Controls.Add(this.SurnameLabel);
+            this.Controls.Add(this.AccountFilterTextbox);
             this.Controls.Add(this.AccountFilterLabel);
             this.Controls.Add(this.FilterButton);
             this.Controls.Add(this.AccountViewAndFilterDataGridView);
@@ -197,14 +194,13 @@
         private System.Windows.Forms.DataGridView AccountViewAndFilterDataGridView;
         private System.Windows.Forms.Button FilterButton;
         private System.Windows.Forms.Label AccountFilterLabel;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.TextBox AccountFilterTextbox;
+        private System.Windows.Forms.TextBox SurnameTextbox;
+        private System.Windows.Forms.Label SurnameLabel;
+        private System.Windows.Forms.Label IsstaffLabel;
+        private System.Windows.Forms.Label StatusLabel;
+        private System.Windows.Forms.ComboBox IsstaffComobox;
+        private System.Windows.Forms.ComboBox StatusComobox;
+        private System.Windows.Forms.Label WaitLable;
     }
 }
