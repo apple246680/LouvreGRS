@@ -17,6 +17,12 @@ namespace LouvreGRS
         public Login()
         {
             InitializeComponent();
+            AppDomain.CurrentDomain.UnhandledException += HandleUnhandledException;
+        }
+        private void HandleUnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            Exception ex = (Exception)e.ExceptionObject;
+            MessageBox.Show($"異常: {ex.Message}", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         public void reset()
         {

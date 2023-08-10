@@ -47,7 +47,7 @@
             this.enter_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.enter_btn.Font = new System.Drawing.Font("Arial", 20F);
             this.enter_btn.ForeColor = System.Drawing.Color.White;
-            this.enter_btn.Location = new System.Drawing.Point(808, 353);
+            this.enter_btn.Location = new System.Drawing.Point(855, 752);
             this.enter_btn.Name = "enter_btn";
             this.enter_btn.Size = new System.Drawing.Size(344, 75);
             this.enter_btn.TabIndex = 29;
@@ -59,7 +59,7 @@
             // 
             this.star5.AutoSize = true;
             this.star5.Font = new System.Drawing.Font("Arial", 40F);
-            this.star5.Location = new System.Drawing.Point(470, 353);
+            this.star5.Location = new System.Drawing.Point(468, 754);
             this.star5.Name = "star5";
             this.star5.Size = new System.Drawing.Size(78, 75);
             this.star5.TabIndex = 28;
@@ -70,7 +70,7 @@
             // 
             this.star4.AutoSize = true;
             this.star4.Font = new System.Drawing.Font("Arial", 40F);
-            this.star4.Location = new System.Drawing.Point(392, 353);
+            this.star4.Location = new System.Drawing.Point(390, 754);
             this.star4.Name = "star4";
             this.star4.Size = new System.Drawing.Size(78, 75);
             this.star4.TabIndex = 27;
@@ -81,7 +81,7 @@
             // 
             this.star3.AutoSize = true;
             this.star3.Font = new System.Drawing.Font("Arial", 40F);
-            this.star3.Location = new System.Drawing.Point(314, 353);
+            this.star3.Location = new System.Drawing.Point(312, 754);
             this.star3.Name = "star3";
             this.star3.Size = new System.Drawing.Size(78, 75);
             this.star3.TabIndex = 26;
@@ -92,7 +92,7 @@
             // 
             this.star2.AutoSize = true;
             this.star2.Font = new System.Drawing.Font("Arial", 40F);
-            this.star2.Location = new System.Drawing.Point(236, 353);
+            this.star2.Location = new System.Drawing.Point(234, 754);
             this.star2.Name = "star2";
             this.star2.Size = new System.Drawing.Size(78, 75);
             this.star2.TabIndex = 25;
@@ -103,7 +103,7 @@
             // 
             this.star1.AutoSize = true;
             this.star1.Font = new System.Drawing.Font("Arial", 40F);
-            this.star1.Location = new System.Drawing.Point(158, 353);
+            this.star1.Location = new System.Drawing.Point(156, 754);
             this.star1.Name = "star1";
             this.star1.Size = new System.Drawing.Size(78, 75);
             this.star1.TabIndex = 24;
@@ -115,7 +115,7 @@
             // 
             this.text_3.AutoSize = true;
             this.text_3.Font = new System.Drawing.Font("Arial", 20F);
-            this.text_3.Location = new System.Drawing.Point(14, 369);
+            this.text_3.Location = new System.Drawing.Point(12, 770);
             this.text_3.Name = "text_3";
             this.text_3.Size = new System.Drawing.Size(153, 39);
             this.text_3.TabIndex = 23;
@@ -127,7 +127,7 @@
             this.enter_textbox.MaxLength = 300;
             this.enter_textbox.Multiline = true;
             this.enter_textbox.Name = "enter_textbox";
-            this.enter_textbox.Size = new System.Drawing.Size(1149, 264);
+            this.enter_textbox.Size = new System.Drawing.Size(1196, 666);
             this.enter_textbox.TabIndex = 22;
             // 
             // text_2
@@ -154,7 +154,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1154, 433);
+            this.ClientSize = new System.Drawing.Size(1200, 830);
             this.Controls.Add(this.enter_btn);
             this.Controls.Add(this.star5);
             this.Controls.Add(this.star4);

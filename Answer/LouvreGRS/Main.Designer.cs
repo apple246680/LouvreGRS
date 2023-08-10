@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.icon = new System.Windows.Forms.PictureBox();
             this.top_bard = new System.Windows.Forms.Panel();
+            this.RegistrationManagementBtn = new System.Windows.Forms.Button();
+            this.AccountViewBtn = new System.Windows.Forms.Button();
             this.exit_btn = new System.Windows.Forms.Button();
             this.title_lab = new System.Windows.Forms.Label();
             this.down_bard = new System.Windows.Forms.Panel();
@@ -42,7 +44,6 @@
             this.feedback_btn = new System.Windows.Forms.Button();
             this.form_shower = new System.Windows.Forms.Panel();
             this.timenow = new System.Windows.Forms.Timer(this.components);
-            this.AccountViewBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.icon)).BeginInit();
             this.top_bard.SuspendLayout();
             this.down_bard.SuspendLayout();
@@ -52,10 +53,11 @@
             // 
             // icon
             // 
+            this.icon.Dock = System.Windows.Forms.DockStyle.Left;
             this.icon.Image = ((System.Drawing.Image)(resources.GetObject("icon.Image")));
-            this.icon.Location = new System.Drawing.Point(3, 0);
+            this.icon.Location = new System.Drawing.Point(0, 0);
             this.icon.Name = "icon";
-            this.icon.Size = new System.Drawing.Size(40, 40);
+            this.icon.Size = new System.Drawing.Size(40, 48);
             this.icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.icon.TabIndex = 0;
             this.icon.TabStop = false;
@@ -63,6 +65,7 @@
             // top_bard
             // 
             this.top_bard.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.top_bard.Controls.Add(this.RegistrationManagementBtn);
             this.top_bard.Controls.Add(this.AccountViewBtn);
             this.top_bard.Controls.Add(this.exit_btn);
             this.top_bard.Controls.Add(this.title_lab);
@@ -70,10 +73,40 @@
             this.top_bard.Dock = System.Windows.Forms.DockStyle.Top;
             this.top_bard.Location = new System.Drawing.Point(0, 0);
             this.top_bard.Name = "top_bard";
-            this.top_bard.Size = new System.Drawing.Size(1154, 52);
+            this.top_bard.Size = new System.Drawing.Size(1200, 50);
             this.top_bard.TabIndex = 1;
             this.top_bard.MouseDown += new System.Windows.Forms.MouseEventHandler(this.top_bard_MouseDown);
             this.top_bard.MouseMove += new System.Windows.Forms.MouseEventHandler(this.top_bard_MouseMove);
+            // 
+            // RegistrationManagementBtn
+            // 
+            this.RegistrationManagementBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.RegistrationManagementBtn.FlatAppearance.BorderSize = 0;
+            this.RegistrationManagementBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RegistrationManagementBtn.Font = new System.Drawing.Font("Arial", 15F);
+            this.RegistrationManagementBtn.Location = new System.Drawing.Point(686, 0);
+            this.RegistrationManagementBtn.Name = "RegistrationManagementBtn";
+            this.RegistrationManagementBtn.Size = new System.Drawing.Size(230, 48);
+            this.RegistrationManagementBtn.TabIndex = 4;
+            this.RegistrationManagementBtn.TabStop = false;
+            this.RegistrationManagementBtn.Text = "團體報名資料管理";
+            this.RegistrationManagementBtn.UseVisualStyleBackColor = true;
+            this.RegistrationManagementBtn.Click += new System.EventHandler(this.RegistrationManagement_Click);
+            // 
+            // AccountViewBtn
+            // 
+            this.AccountViewBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.AccountViewBtn.FlatAppearance.BorderSize = 0;
+            this.AccountViewBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AccountViewBtn.Font = new System.Drawing.Font("Arial", 15F);
+            this.AccountViewBtn.Location = new System.Drawing.Point(916, 0);
+            this.AccountViewBtn.Name = "AccountViewBtn";
+            this.AccountViewBtn.Size = new System.Drawing.Size(207, 48);
+            this.AccountViewBtn.TabIndex = 3;
+            this.AccountViewBtn.TabStop = false;
+            this.AccountViewBtn.Text = "帳號檢視及篩選";
+            this.AccountViewBtn.UseVisualStyleBackColor = true;
+            this.AccountViewBtn.Click += new System.EventHandler(this.AccountViewBtn_Click);
             // 
             // exit_btn
             // 
@@ -81,9 +114,9 @@
             this.exit_btn.FlatAppearance.BorderSize = 0;
             this.exit_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exit_btn.Font = new System.Drawing.Font("Arial", 15F);
-            this.exit_btn.Location = new System.Drawing.Point(1077, 0);
+            this.exit_btn.Location = new System.Drawing.Point(1123, 0);
             this.exit_btn.Name = "exit_btn";
-            this.exit_btn.Size = new System.Drawing.Size(75, 50);
+            this.exit_btn.Size = new System.Drawing.Size(75, 48);
             this.exit_btn.TabIndex = 2;
             this.exit_btn.TabStop = false;
             this.exit_btn.Text = "X";
@@ -93,10 +126,11 @@
             // title_lab
             // 
             this.title_lab.AutoSize = true;
-            this.title_lab.Font = new System.Drawing.Font("Arial", 20F);
-            this.title_lab.Location = new System.Drawing.Point(49, 0);
+            this.title_lab.Dock = System.Windows.Forms.DockStyle.Left;
+            this.title_lab.Font = new System.Drawing.Font("Arial", 23F);
+            this.title_lab.Location = new System.Drawing.Point(40, 0);
             this.title_lab.Name = "title_lab";
-            this.title_lab.Size = new System.Drawing.Size(213, 39);
+            this.title_lab.Size = new System.Drawing.Size(247, 44);
             this.title_lab.TabIndex = 1;
             this.title_lab.Text = "Louvre GRS-";
             // 
@@ -109,9 +143,9 @@
             this.down_bard.Controls.Add(this.pict2);
             this.down_bard.Controls.Add(this.feedback_btn);
             this.down_bard.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.down_bard.Location = new System.Drawing.Point(0, 485);
+            this.down_bard.Location = new System.Drawing.Point(0, 880);
             this.down_bard.Name = "down_bard";
-            this.down_bard.Size = new System.Drawing.Size(1154, 120);
+            this.down_bard.Size = new System.Drawing.Size(1200, 120);
             this.down_bard.TabIndex = 2;
             // 
             // joblable
@@ -119,7 +153,7 @@
             this.joblable.AutoSize = true;
             this.joblable.Font = new System.Drawing.Font("Arial", 14F);
             this.joblable.ForeColor = System.Drawing.Color.White;
-            this.joblable.Location = new System.Drawing.Point(726, 69);
+            this.joblable.Location = new System.Drawing.Point(731, 72);
             this.joblable.Name = "joblable";
             this.joblable.Size = new System.Drawing.Size(228, 27);
             this.joblable.TabIndex = 4;
@@ -132,9 +166,9 @@
             this.login_logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.login_logout.Font = new System.Drawing.Font("Arial", 12F);
             this.login_logout.ForeColor = System.Drawing.Color.White;
-            this.login_logout.Location = new System.Drawing.Point(731, 0);
+            this.login_logout.Location = new System.Drawing.Point(731, 3);
             this.login_logout.Name = "login_logout";
-            this.login_logout.Size = new System.Drawing.Size(423, 66);
+            this.login_logout.Size = new System.Drawing.Size(466, 66);
             this.login_logout.TabIndex = 3;
             this.login_logout.TabStop = false;
             this.login_logout.Text = "登入";
@@ -181,9 +215,9 @@
             // 
             this.form_shower.BackColor = System.Drawing.Color.Gray;
             this.form_shower.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.form_shower.Location = new System.Drawing.Point(0, 52);
+            this.form_shower.Location = new System.Drawing.Point(0, 50);
             this.form_shower.Name = "form_shower";
-            this.form_shower.Size = new System.Drawing.Size(1154, 433);
+            this.form_shower.Size = new System.Drawing.Size(1200, 830);
             this.form_shower.TabIndex = 3;
             // 
             // timenow
@@ -191,26 +225,11 @@
             this.timenow.Interval = 1;
             this.timenow.Tick += new System.EventHandler(this.timenow_Tick);
             // 
-            // AccountViewBtn
-            // 
-            this.AccountViewBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.AccountViewBtn.FlatAppearance.BorderSize = 0;
-            this.AccountViewBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AccountViewBtn.Font = new System.Drawing.Font("Arial", 15F);
-            this.AccountViewBtn.Location = new System.Drawing.Point(870, 0);
-            this.AccountViewBtn.Name = "AccountViewBtn";
-            this.AccountViewBtn.Size = new System.Drawing.Size(207, 50);
-            this.AccountViewBtn.TabIndex = 3;
-            this.AccountViewBtn.TabStop = false;
-            this.AccountViewBtn.Text = "帳號檢視及篩選";
-            this.AccountViewBtn.UseVisualStyleBackColor = true;
-            this.AccountViewBtn.Click += new System.EventHandler(this.AccountViewBtn_Click);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1154, 605);
+            this.ClientSize = new System.Drawing.Size(1200, 1000);
             this.Controls.Add(this.form_shower);
             this.Controls.Add(this.down_bard);
             this.Controls.Add(this.top_bard);
@@ -244,6 +263,7 @@
         private System.Windows.Forms.Panel form_shower;
         private System.Windows.Forms.Timer timenow;
         private System.Windows.Forms.Button AccountViewBtn;
+        private System.Windows.Forms.Button RegistrationManagementBtn;
     }
 }
 

@@ -6,6 +6,7 @@ using System.Data.Entity;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,6 +18,12 @@ namespace LouvreGRS
         public AccountViewAndFilter()
         {
             InitializeComponent();
+            AppDomain.CurrentDomain.UnhandledException +=HandleUnhandledException;
+        }
+        private void HandleUnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            Exception ex = (Exception)e.ExceptionObject;
+            MessageBox.Show($"異常: {ex.Message}", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         LouvreGRS_ANMEntities entities = new LouvreGRS_ANMEntities();
         DataTable datatable = new DataTable
@@ -64,20 +71,23 @@ namespace LouvreGRS
             }
             AccountViewAndFilterDataGridView.Invoke(new Action(() => { AccountViewAndFilterDataGridView.DataSource = datatable; }));
         }
-        private async void AccountViewAndFilter_Load(object sender, EventArgs e)
-        {
-            WaitLable.Visible = true;
-            await Showdata();
-            WaitLable.Visible = false;
+        public void reload() {
             IsstaffComobox.SelectedIndex = 0;
             StatusComobox.SelectedIndex = 0;
+            FilterButton_Click(null, null);
         }
-
         private void FilterButton_Click(object sender, EventArgs e)
         {
                 DataTable filteredDataTable = datatable;
             if (!string.IsNullOrWhiteSpace(AccountFilterTextbox.Text))
-                filteredDataTable = filteredDataTable.Select($"登入帳號 = '{AccountFilterTextbox.Text}'").CopyToDataTable();
+                try
+                {
+                    filteredDataTable = filteredDataTable.Select($"登入帳號 = '{AccountFilterTextbox.Text.Replace("'", "''")}'").CopyToDataTable();
+                }
+                catch
+                {
+                    MessageBox.Show("找不到");
+                }
             else
             {
                 if (IsstaffComobox.SelectedIndex!=-1&& IsstaffComobox.SelectedIndex !=0)
@@ -87,19 +97,26 @@ namespace LouvreGRS
                 }
                 if (StatusComobox.SelectedIndex!=-1&&StatusComobox.SelectedIndex!=0)
                     filteredDataTable = filteredDataTable.Select($"帳號狀態 = '{StatusComobox.Text}'").CopyToDataTable();
-                if(SurnameTextbox.Text!="")
-                   filteredDataTable = filteredDataTable.Select($"姓名 LIKE '*{SurnameTextbox.Text}*'").CopyToDataTable();
+                try
+                {
+                if(NameTextbox.Text!="")
+                   filteredDataTable = filteredDataTable.Select($"姓名 LIKE '*{NameTextbox.Text.Replace("'", "''")}*'").CopyToDataTable();
+                }
+                catch
+                {
+                    MessageBox.Show("找不到");
+                }
 
             }
             AccountViewAndFilterDataGridView.DataSource = filteredDataTable;
         }
         private void AccountFilterTextbox_TextChanged(object sender, EventArgs e)
         {
-            SurnameTextbox.Enabled = AccountFilterTextbox.Text == "";
+            NameTextbox.Enabled = AccountFilterTextbox.Text == "";
             IsstaffComobox.Enabled = AccountFilterTextbox.Text == "";
             StatusComobox.Enabled = AccountFilterTextbox.Text == "";
             if (AccountFilterTextbox.Text != "") {
-                SurnameTextbox.Text = string.Empty;
+                NameTextbox.Text = string.Empty;
                 IsstaffComobox.SelectedIndex = -1;
                 StatusComobox.SelectedIndex = -1;
             }
@@ -109,6 +126,25 @@ namespace LouvreGRS
                 StatusComobox.SelectedIndex = 0;
             }
             
+        }
+
+        private async void AccountViewAndFilter_Load(object sender, EventArgs e)
+        {
+            AccountFilterTextbox.Enabled = false;
+            NameTextbox.Enabled = false;
+            IsstaffComobox.Enabled = false;
+            StatusComobox.Enabled = false;
+            FilterButton.Enabled = false;
+            WaitLable.Visible = true;
+            await Showdata();
+            WaitLable.Visible = false;
+            AccountFilterTextbox.Enabled = true;
+            NameTextbox.Enabled = true;
+            FilterButton.Enabled = true;
+            IsstaffComobox.SelectedIndex = 0;
+            StatusComobox.SelectedIndex = 0;
+            IsstaffComobox.Enabled = true;
+            StatusComobox.Enabled = true;
         }
     }
 }

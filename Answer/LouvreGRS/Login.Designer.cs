@@ -59,7 +59,7 @@
             this.flowLayoutPanel2.Controls.Add(this.ErrorPanel);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(184, 50);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(786, 332);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(908, 555);
             this.flowLayoutPanel2.TabIndex = 10;
             // 
             // AccountPanel
@@ -68,7 +68,7 @@
             this.AccountPanel.Controls.Add(this.AccountLabel);
             this.AccountPanel.Location = new System.Drawing.Point(3, 3);
             this.AccountPanel.Name = "AccountPanel";
-            this.AccountPanel.Size = new System.Drawing.Size(628, 52);
+            this.AccountPanel.Size = new System.Drawing.Size(905, 52);
             this.AccountPanel.TabIndex = 14;
             // 
             // AccountTextbox
@@ -96,7 +96,7 @@
             this.NumberPanel.Controls.Add(this.NumberLabel);
             this.NumberPanel.Location = new System.Drawing.Point(3, 61);
             this.NumberPanel.Name = "NumberPanel";
-            this.NumberPanel.Size = new System.Drawing.Size(628, 52);
+            this.NumberPanel.Size = new System.Drawing.Size(905, 52);
             this.NumberPanel.TabIndex = 15;
             // 
             // NumberTextbox
@@ -123,7 +123,7 @@
             this.PasswordPanel.Controls.Add(this.PasswordLabel);
             this.PasswordPanel.Location = new System.Drawing.Point(3, 119);
             this.PasswordPanel.Name = "PasswordPanel";
-            this.PasswordPanel.Size = new System.Drawing.Size(628, 52);
+            this.PasswordPanel.Size = new System.Drawing.Size(905, 52);
             this.PasswordPanel.TabIndex = 16;
             // 
             // PasswordTextbox
@@ -149,7 +149,7 @@
             this.LoginPanel.Controls.Add(this.LoginBtn);
             this.LoginPanel.Location = new System.Drawing.Point(3, 177);
             this.LoginPanel.Name = "LoginPanel";
-            this.LoginPanel.Size = new System.Drawing.Size(628, 69);
+            this.LoginPanel.Size = new System.Drawing.Size(905, 127);
             this.LoginPanel.TabIndex = 17;
             // 
             // LoginBtn
@@ -159,9 +159,9 @@
             this.LoginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LoginBtn.Font = new System.Drawing.Font("Arial", 20F);
             this.LoginBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.LoginBtn.Location = new System.Drawing.Point(298, 5);
+            this.LoginBtn.Location = new System.Drawing.Point(308, 3);
             this.LoginBtn.Name = "LoginBtn";
-            this.LoginBtn.Size = new System.Drawing.Size(317, 61);
+            this.LoginBtn.Size = new System.Drawing.Size(320, 104);
             this.LoginBtn.TabIndex = 11;
             this.LoginBtn.Text = "確認登入";
             this.LoginBtn.UseVisualStyleBackColor = false;
@@ -170,9 +170,9 @@
             // ErrorPanel
             // 
             this.ErrorPanel.Controls.Add(this.ErrorLabel);
-            this.ErrorPanel.Location = new System.Drawing.Point(3, 252);
+            this.ErrorPanel.Location = new System.Drawing.Point(3, 310);
             this.ErrorPanel.Name = "ErrorPanel";
-            this.ErrorPanel.Size = new System.Drawing.Size(783, 69);
+            this.ErrorPanel.Size = new System.Drawing.Size(905, 156);
             this.ErrorPanel.TabIndex = 18;
             this.ErrorPanel.Visible = false;
             // 
@@ -181,7 +181,7 @@
             this.ErrorLabel.AutoSize = true;
             this.ErrorLabel.Font = new System.Drawing.Font("Arial", 20F);
             this.ErrorLabel.ForeColor = System.Drawing.Color.Red;
-            this.ErrorLabel.Location = new System.Drawing.Point(18, 17);
+            this.ErrorLabel.Location = new System.Drawing.Point(3, 57);
             this.ErrorLabel.Name = "ErrorLabel";
             this.ErrorLabel.Size = new System.Drawing.Size(187, 39);
             this.ErrorLabel.TabIndex = 0;
@@ -191,7 +191,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1154, 433);
+            this.ClientSize = new System.Drawing.Size(1200, 830);
             this.Controls.Add(this.flowLayoutPanel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";

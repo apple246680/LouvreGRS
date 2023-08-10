@@ -18,13 +18,13 @@ namespace LouvreGRS
         public Feedback()
         {
             InitializeComponent();
-            AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(HandleUnhandledException);
+            AppDomain.CurrentDomain.UnhandledException += HandleUnhandledException;
         }
         HttpResponseMessage response = new HttpResponseMessage();
         private void HandleUnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
             Exception ex = (Exception)e.ExceptionObject;
-            MessageBox.Show($"異常: {ex.Message}", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show($"異常: {ex.Message}", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         public void reload()
         {

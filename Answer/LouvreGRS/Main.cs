@@ -18,6 +18,12 @@ namespace LouvreGRS
         {
             ins= this;
             InitializeComponent();
+            AppDomain.CurrentDomain.UnhandledException += HandleUnhandledException;
+        }
+        private void HandleUnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            Exception ex = (Exception)e.ExceptionObject;
+            MessageBox.Show($"異常: {ex.Message}", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         public void back()
         {
@@ -90,14 +96,29 @@ namespace LouvreGRS
         {
             title_lab.Text = $"Louvre GRS-{DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")}";
             AccountViewBtn.Visible = joblable.Text == "目前使用人員：System Administrator";
+            RegistrationManagementBtn.Visible = joblable.Text == "目前使用人員：System Administrator"|| joblable.Text == "目前使用人員：Guide"|| joblable.Text == "目前使用人員：旅行社管理員";
         }
         AccountViewAndFilter accountViewAndFilter=new AccountViewAndFilter();
-        private void AccountViewBtn_Click(object sender, EventArgs e)
+        int i = 0;
+        private async void AccountViewBtn_Click(object sender, EventArgs e)
         {
             form_shower.Controls.Clear();
             accountViewAndFilter.TopLevel = false;
             this.form_shower.Controls.Add(accountViewAndFilter);
+            i++;
+            if (i > 1) {
+                accountViewAndFilter.reload();
+                i = 1;
+            }
             accountViewAndFilter.Show();
+        }
+        GroupRegistrationManagement GroupRegistrationManagement = new GroupRegistrationManagement();
+        private void RegistrationManagement_Click(object sender, EventArgs e)
+        {
+            form_shower.Controls.Clear();
+            GroupRegistrationManagement.TopLevel = false;
+            this.form_shower.Controls.Add(GroupRegistrationManagement);
+            GroupRegistrationManagement.Show();
         }
     }
 }
