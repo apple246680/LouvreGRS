@@ -213,6 +213,7 @@
             // 
             // form_shower
             // 
+            this.form_shower.AutoScroll = true;
             this.form_shower.BackColor = System.Drawing.Color.Gray;
             this.form_shower.Dock = System.Windows.Forms.DockStyle.Fill;
             this.form_shower.Location = new System.Drawing.Point(0, 50);

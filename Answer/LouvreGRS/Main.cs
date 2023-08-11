@@ -91,6 +91,7 @@ namespace LouvreGRS
         private void Main_Load(object sender, EventArgs e)
         {
             timenow.Start();
+            login_logout_Click(null,null);
         }
         private void timenow_Tick(object sender, EventArgs e)
         {

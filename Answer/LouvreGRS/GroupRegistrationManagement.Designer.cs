@@ -29,22 +29,38 @@
         private void InitializeComponent()
         {
             this.Model1 = new System.Windows.Forms.Panel();
-            this.Model2 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.CaseDatagridview = new System.Windows.Forms.DataGridView();
-            this.InfoLabel1 = new System.Windows.Forms.Label();
-            this.CaseTextbox = new System.Windows.Forms.TextBox();
-            this.SearchBtn = new System.Windows.Forms.Button();
             this.InfoLabel = new System.Windows.Forms.Label();
-            this.CaseLabel = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.FeaturesLabel = new System.Windows.Forms.Label();
-            this.ActivitiesLabel = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.SearchBtn = new System.Windows.Forms.Button();
+            this.CaseTextbox = new System.Windows.Forms.TextBox();
+            this.InfoLabel1 = new System.Windows.Forms.Label();
+            this.CaseDatagridview = new System.Windows.Forms.DataGridView();
+            this.Model2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ExhibitionLabel = new System.Windows.Forms.Label();
+            this.ActivitiesLabel = new System.Windows.Forms.Label();
+            this.FeaturesLabel = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.CaseLabel = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.casename = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Model1.SuspendLayout();
-            this.Model2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CaseDatagridview)).BeginInit();
+            this.Model2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,65 +74,18 @@
             this.Model1.Dock = System.Windows.Forms.DockStyle.Top;
             this.Model1.Location = new System.Drawing.Point(0, 0);
             this.Model1.Name = "Model1";
-            this.Model1.Size = new System.Drawing.Size(1200, 380);
+            this.Model1.Size = new System.Drawing.Size(1200, 325);
             this.Model1.TabIndex = 0;
             // 
-            // Model2
+            // InfoLabel
             // 
-            this.Model2.Controls.Add(this.dataGridView1);
-            this.Model2.Controls.Add(this.label4);
-            this.Model2.Controls.Add(this.ActivitiesLabel);
-            this.Model2.Controls.Add(this.FeaturesLabel);
-            this.Model2.Controls.Add(this.panel2);
-            this.Model2.Controls.Add(this.CaseLabel);
-            this.Model2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Model2.Location = new System.Drawing.Point(0, 400);
-            this.Model2.Name = "Model2";
-            this.Model2.Size = new System.Drawing.Size(1200, 600);
-            this.Model2.TabIndex = 1;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.panel1.Location = new System.Drawing.Point(0, 386);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1200, 5);
-            this.panel1.TabIndex = 2;
-            // 
-            // CaseDatagridview
-            // 
-            this.CaseDatagridview.AllowUserToAddRows = false;
-            this.CaseDatagridview.AllowUserToDeleteRows = false;
-            this.CaseDatagridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.CaseDatagridview.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.CaseDatagridview.Location = new System.Drawing.Point(0, 64);
-            this.CaseDatagridview.MultiSelect = false;
-            this.CaseDatagridview.Name = "CaseDatagridview";
-            this.CaseDatagridview.ReadOnly = true;
-            this.CaseDatagridview.RowHeadersWidth = 51;
-            this.CaseDatagridview.RowTemplate.Height = 27;
-            this.CaseDatagridview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.CaseDatagridview.Size = new System.Drawing.Size(1200, 316);
-            this.CaseDatagridview.TabIndex = 0;
-            this.CaseDatagridview.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CaseDatagridview_CellClick);
-            // 
-            // InfoLabel1
-            // 
-            this.InfoLabel1.AutoSize = true;
-            this.InfoLabel1.Font = new System.Drawing.Font("Arial", 20F);
-            this.InfoLabel1.Location = new System.Drawing.Point(3, 9);
-            this.InfoLabel1.Name = "InfoLabel1";
-            this.InfoLabel1.Size = new System.Drawing.Size(391, 39);
-            this.InfoLabel1.TabIndex = 1;
-            this.InfoLabel1.Text = "僅列出販售中的套裝資料";
-            // 
-            // CaseTextbox
-            // 
-            this.CaseTextbox.Font = new System.Drawing.Font("Arial", 20F);
-            this.CaseTextbox.Location = new System.Drawing.Point(620, 12);
-            this.CaseTextbox.Name = "CaseTextbox";
-            this.CaseTextbox.Size = new System.Drawing.Size(218, 46);
-            this.CaseTextbox.TabIndex = 2;
+            this.InfoLabel.AutoSize = true;
+            this.InfoLabel.Font = new System.Drawing.Font("Arial", 15F);
+            this.InfoLabel.Location = new System.Drawing.Point(452, 0);
+            this.InfoLabel.Name = "InfoLabel";
+            this.InfoLabel.Size = new System.Drawing.Size(123, 28);
+            this.InfoLabel.TabIndex = 4;
+            this.InfoLabel.Text = "套裝名稱:";
             // 
             // SearchBtn
             // 
@@ -125,33 +94,121 @@
             this.SearchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchBtn.Font = new System.Drawing.Font("Arial", 15F);
             this.SearchBtn.ForeColor = System.Drawing.Color.White;
-            this.SearchBtn.Location = new System.Drawing.Point(844, 9);
+            this.SearchBtn.Location = new System.Drawing.Point(869, 0);
             this.SearchBtn.Name = "SearchBtn";
-            this.SearchBtn.Size = new System.Drawing.Size(195, 49);
+            this.SearchBtn.Size = new System.Drawing.Size(195, 36);
             this.SearchBtn.TabIndex = 3;
             this.SearchBtn.Text = "搜尋";
             this.SearchBtn.UseVisualStyleBackColor = false;
             this.SearchBtn.Click += new System.EventHandler(this.SearchBtn_Click);
             // 
-            // InfoLabel
+            // CaseTextbox
             // 
-            this.InfoLabel.AutoSize = true;
-            this.InfoLabel.Font = new System.Drawing.Font("Arial", 20F);
-            this.InfoLabel.Location = new System.Drawing.Point(452, 9);
-            this.InfoLabel.Name = "InfoLabel";
-            this.InfoLabel.Size = new System.Drawing.Size(162, 39);
-            this.InfoLabel.TabIndex = 4;
-            this.InfoLabel.Text = "套裝名稱:";
+            this.CaseTextbox.Font = new System.Drawing.Font("Arial", 15F);
+            this.CaseTextbox.Location = new System.Drawing.Point(611, 0);
+            this.CaseTextbox.Name = "CaseTextbox";
+            this.CaseTextbox.Size = new System.Drawing.Size(252, 36);
+            this.CaseTextbox.TabIndex = 2;
             // 
-            // CaseLabel
+            // InfoLabel1
             // 
-            this.CaseLabel.AutoSize = true;
-            this.CaseLabel.Font = new System.Drawing.Font("Arial", 20F);
-            this.CaseLabel.Location = new System.Drawing.Point(4, 4);
-            this.CaseLabel.Name = "CaseLabel";
-            this.CaseLabel.Size = new System.Drawing.Size(94, 39);
-            this.CaseLabel.TabIndex = 0;
-            this.CaseLabel.Text = "套裝:";
+            this.InfoLabel1.AutoSize = true;
+            this.InfoLabel1.Font = new System.Drawing.Font("Arial", 15F);
+            this.InfoLabel1.Location = new System.Drawing.Point(3, 0);
+            this.InfoLabel1.Name = "InfoLabel1";
+            this.InfoLabel1.Size = new System.Drawing.Size(298, 28);
+            this.InfoLabel1.TabIndex = 1;
+            this.InfoLabel1.Text = "僅列出販售中的套裝資料";
+            // 
+            // CaseDatagridview
+            // 
+            this.CaseDatagridview.AllowUserToAddRows = false;
+            this.CaseDatagridview.AllowUserToDeleteRows = false;
+            this.CaseDatagridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CaseDatagridview.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.casename,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column7,
+            this.Column8});
+            this.CaseDatagridview.Location = new System.Drawing.Point(0, 42);
+            this.CaseDatagridview.MultiSelect = false;
+            this.CaseDatagridview.Name = "CaseDatagridview";
+            this.CaseDatagridview.ReadOnly = true;
+            this.CaseDatagridview.RowHeadersWidth = 51;
+            this.CaseDatagridview.RowTemplate.Height = 27;
+            this.CaseDatagridview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.CaseDatagridview.Size = new System.Drawing.Size(1200, 283);
+            this.CaseDatagridview.TabIndex = 0;
+            this.CaseDatagridview.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CaseDatagridview_CellClick);
+            // 
+            // Model2
+            // 
+            this.Model2.Controls.Add(this.dataGridView1);
+            this.Model2.Controls.Add(this.ExhibitionLabel);
+            this.Model2.Controls.Add(this.ActivitiesLabel);
+            this.Model2.Controls.Add(this.FeaturesLabel);
+            this.Model2.Controls.Add(this.panel2);
+            this.Model2.Controls.Add(this.CaseLabel);
+            this.Model2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Model2.Location = new System.Drawing.Point(0, 295);
+            this.Model2.Name = "Model2";
+            this.Model2.Size = new System.Drawing.Size(1200, 760);
+            this.Model2.TabIndex = 1;
+            this.Model2.Visible = false;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column9,
+            this.Column10,
+            this.Column11,
+            this.Column12,
+            this.Column13,
+            this.Column14,
+            this.Column15});
+            this.dataGridView1.Location = new System.Drawing.Point(0, 277);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 27;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(1200, 480);
+            this.dataGridView1.TabIndex = 7;
+            // 
+            // ExhibitionLabel
+            // 
+            this.ExhibitionLabel.Font = new System.Drawing.Font("Arial", 15F);
+            this.ExhibitionLabel.Location = new System.Drawing.Point(3, 159);
+            this.ExhibitionLabel.Name = "ExhibitionLabel";
+            this.ExhibitionLabel.Size = new System.Drawing.Size(1194, 115);
+            this.ExhibitionLabel.TabIndex = 6;
+            this.ExhibitionLabel.Text = "關聯展館:\r\n";
+            // 
+            // ActivitiesLabel
+            // 
+            this.ActivitiesLabel.Font = new System.Drawing.Font("Arial", 15F);
+            this.ActivitiesLabel.Location = new System.Drawing.Point(3, 93);
+            this.ActivitiesLabel.Name = "ActivitiesLabel";
+            this.ActivitiesLabel.Size = new System.Drawing.Size(1194, 66);
+            this.ActivitiesLabel.TabIndex = 5;
+            this.ActivitiesLabel.Text = "關聯活動:";
+            // 
+            // FeaturesLabel
+            // 
+            this.FeaturesLabel.Font = new System.Drawing.Font("Arial", 15F);
+            this.FeaturesLabel.Location = new System.Drawing.Point(4, 54);
+            this.FeaturesLabel.Name = "FeaturesLabel";
+            this.FeaturesLabel.Size = new System.Drawing.Size(1193, 39);
+            this.FeaturesLabel.TabIndex = 4;
+            this.FeaturesLabel.Text = "特色:";
             // 
             // panel2
             // 
@@ -161,56 +218,157 @@
             this.panel2.Size = new System.Drawing.Size(1100, 5);
             this.panel2.TabIndex = 3;
             // 
-            // FeaturesLabel
+            // CaseLabel
             // 
-            this.FeaturesLabel.AutoSize = true;
-            this.FeaturesLabel.Font = new System.Drawing.Font("Arial", 20F);
-            this.FeaturesLabel.Location = new System.Drawing.Point(4, 54);
-            this.FeaturesLabel.Name = "FeaturesLabel";
-            this.FeaturesLabel.Size = new System.Drawing.Size(94, 39);
-            this.FeaturesLabel.TabIndex = 4;
-            this.FeaturesLabel.Text = "特色:";
+            this.CaseLabel.Font = new System.Drawing.Font("Arial", 15F);
+            this.CaseLabel.Location = new System.Drawing.Point(4, 4);
+            this.CaseLabel.Name = "CaseLabel";
+            this.CaseLabel.Size = new System.Drawing.Size(1184, 40);
+            this.CaseLabel.TabIndex = 0;
+            this.CaseLabel.Text = "套裝:";
             // 
-            // ActivitiesLabel
+            // panel1
             // 
-            this.ActivitiesLabel.AutoSize = true;
-            this.ActivitiesLabel.Font = new System.Drawing.Font("Arial", 20F);
-            this.ActivitiesLabel.Location = new System.Drawing.Point(3, 93);
-            this.ActivitiesLabel.Name = "ActivitiesLabel";
-            this.ActivitiesLabel.Size = new System.Drawing.Size(162, 39);
-            this.ActivitiesLabel.TabIndex = 5;
-            this.ActivitiesLabel.Text = "關聯活動:";
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panel1.Location = new System.Drawing.Point(0, 331);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1200, 5);
+            this.panel1.TabIndex = 2;
             // 
-            // label4
+            // casename
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 20F);
-            this.label4.Location = new System.Drawing.Point(3, 132);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(162, 39);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "關聯展館:";
+            this.casename.HeaderText = "套裝名稱";
+            this.casename.MinimumWidth = 6;
+            this.casename.Name = "casename";
+            this.casename.ReadOnly = true;
+            this.casename.Width = 125;
             // 
-            // dataGridView1
+            // Column2
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 213);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1200, 387);
-            this.dataGridView1.TabIndex = 7;
+            this.Column2.HeaderText = "參觀時段";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 125;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "建議參觀時數";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 125;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "售價(人)";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 125;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "最大可報名人數";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 125;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "剩餘可報名人數";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 125;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "狀態";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 125;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "操作";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Width = 125;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "旅行社名稱";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 125;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "旅行社人員";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Width = 125;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "狀態";
+            this.Column10.MinimumWidth = 6;
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Width = 125;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "付款時間";
+            this.Column11.MinimumWidth = 6;
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            this.Column11.Width = 125;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "慣用語言";
+            this.Column12.MinimumWidth = 6;
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            this.Column12.Width = 125;
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "參觀日期";
+            this.Column13.MinimumWidth = 6;
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            this.Column13.Width = 125;
+            // 
+            // Column14
+            // 
+            this.Column14.HeaderText = "訂單總額";
+            this.Column14.MinimumWidth = 6;
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
+            this.Column14.Width = 125;
+            // 
+            // Column15
+            // 
+            this.Column15.HeaderText = "匯出名單";
+            this.Column15.MinimumWidth = 6;
+            this.Column15.Name = "Column15";
+            this.Column15.ReadOnly = true;
+            this.Column15.Text = "另存CSV";
+            this.Column15.Width = 125;
             // 
             // GroupRegistrationManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 1000);
+            this.ClientSize = new System.Drawing.Size(1200, 1055);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Model2);
             this.Controls.Add(this.Model1);
@@ -221,9 +379,8 @@
             this.Load += new System.EventHandler(this.GroupRegistrationManagement_Load);
             this.Model1.ResumeLayout(false);
             this.Model1.PerformLayout();
-            this.Model2.ResumeLayout(false);
-            this.Model2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CaseDatagridview)).EndInit();
+            this.Model2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -243,7 +400,23 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label CaseLabel;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label ExhibitionLabel;
         private System.Windows.Forms.Label ActivitiesLabel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn casename;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewButtonColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.DataGridViewButtonColumn Column15;
     }
 }
