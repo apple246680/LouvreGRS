@@ -18,23 +18,36 @@ namespace LouvreGRS
         public Feedback()
         {
             InitializeComponent();
-            AppDomain.CurrentDomain.UnhandledException += HandleUnhandledException;
         }
         HttpResponseMessage response = new HttpResponseMessage();
-        private void HandleUnhandledException(object sender, UnhandledExceptionEventArgs e)
-        {
-            Exception ex = (Exception)e.ExceptionObject;
-            MessageBox.Show($"異常: {ex.Message}", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-        public void reload()
+        public void Reload()
         {
             Feedback_Load(null, null);
-            enter_textbox.Text = string.Empty;
-            star = 3;
-            UpdateStarText();
+            Entertextbox.Text = string.Empty;
+            UpdateStarText(3);
         }
         int star;
-        private void enter_btn_Click(object sender, EventArgs e)
+        private void UpdateStarText(int selectstars)
+        {
+            star = selectstars;
+            star1.Text = (star >= 1) ? "★" : "☆";
+            star2.Text = (star >= 2) ? "★" : "☆";
+            star3.Text = (star >= 3) ? "★" : "☆";
+            star4.Text = (star >= 4) ? "★" : "☆";
+            star5.Text = (star == 5) ? "★" : "☆";
+        }
+        private void Feedback_Load(object sender, EventArgs e)
+        {
+            var https = new HttpClient();
+            https.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            response = https.GetAsync("http://localhost:500/api/UserVoice/GetRequestToken").Result;
+        }
+        private void Star1_Click(object sender, EventArgs e)
+        {
+            UpdateStarText(Convert.ToInt32((sender as Label).Tag));
+        }
+
+        private void EnterBtn_Click(object sender, EventArgs e)
         {
             if (response.IsSuccessStatusCode)
             {
@@ -47,7 +60,7 @@ namespace LouvreGRS
                 string jsonData = JsonSerializer.Serialize(new
                 {
                     RequestToken = RequestToken,
-                    Content = enter_textbox.Text,
+                    Content = Entertextbox.Text,
                     Score = star
                 });
                 HttpContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
@@ -62,31 +75,12 @@ namespace LouvreGRS
                     if (ResultCode == "0000")
                     {
                         MessageBox.Show("感謝您反應寶貴的意見！");
-                        Main.backstatic();
+                        Main.Backstatic(null);
                     }
                     else if (ResultCode != "0000")
                         MessageBox.Show("請確認您的資料正確，或是回報系統發生了些問題，請稍後再試！");
                 }
             }
-        }
-        private void UpdateStarText()
-        {
-            star1.Text = (star >= 1) ? "★" : "☆";
-            star2.Text = (star >= 2) ? "★" : "☆";
-            star3.Text = (star >= 3) ? "★" : "☆";
-            star4.Text = (star >= 4) ? "★" : "☆";
-            star5.Text = (star == 5) ? "★" : "☆";
-        }
-        private void star1_Click(object sender, EventArgs e)
-        {
-            star = (Convert.ToInt32((sender as Label).Tag));
-            UpdateStarText();
-        }
-        private void Feedback_Load(object sender, EventArgs e)
-        {
-            var https = new HttpClient();
-            https.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            response = https.GetAsync("http://localhost:500/api/UserVoice/GetRequestToken").Result;
         }
     }
 }

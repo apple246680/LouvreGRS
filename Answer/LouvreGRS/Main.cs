@@ -25,79 +25,32 @@ namespace LouvreGRS
             Exception ex = (Exception)e.ExceptionObject;
             MessageBox.Show($"異常: {ex.Message}", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-        public void back()
+        string value = "";
+        public void Back(string retrunvalue)
         {
             this.form_shower.Controls.Clear();
+            value = retrunvalue;
         }
-        static public void backstatic() 
+        static public void Backstatic(string aa) 
         {
-            ins.back();
+            ins.Back(aa);
         }
-        public void job(string jobtitle) 
+        public void Job(string jobtitle) 
         {
-            joblable.Text = $"目前使用人員：{jobtitle}";
-            login_logout.Text = "登出";
+            JobLable.Text = $"目前使用人員：{jobtitle}";
+            LoginLogoutBtn.Text = "登出";
         }
-        static public void jobstatic(string jobtitle)
+        static public void Jobstatic(string jobtitle)
         {
-            ins.job(jobtitle);
+            ins.Job(jobtitle);
         }
         private Point mouseDownLocation;
         Feedback feedbackform = new Feedback();
         Login loginform=new Login();
-        private void login_logout_Click(object sender, EventArgs e)
-        {
-            if (login_logout.Text == "登入")
-            {
-                form_shower.Controls.Clear();
-                loginform.TopLevel = false;
-                this.form_shower.Controls.Add(loginform);
-                loginform.reset();
-                loginform.Show();
-            }
-            else
-            {
-                joblable.Text = "目前使用人員：訪客";
-                login_logout.Text = "登入";
-            }
-        }
-        private void exit_btn_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-        private void top_bard_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                int dx = e.X - mouseDownLocation.X;
-                int dy = e.Y - mouseDownLocation.Y;
-                this.Location = new Point(this.Location.X + dx, this.Location.Y + dy);
-            }
-        }
-        private void top_bard_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-                mouseDownLocation = e.Location;
-        }
-
-        private void feedback_btn_Click(object sender, EventArgs e)
-        {
-            form_shower.Controls.Clear();
-            feedbackform.TopLevel = false;
-            this.form_shower.Controls.Add(feedbackform);
-            feedbackform.reload();
-            feedbackform.Show();
-        }
         private void Main_Load(object sender, EventArgs e)
         {
-            timenow.Start();
-            login_logout_Click(null,null);
-        }
-        private void timenow_Tick(object sender, EventArgs e)
-        {
-            title_lab.Text = $"Louvre GRS-{DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")}";
-            AccountViewBtn.Visible = joblable.Text == "目前使用人員：System Administrator";
-            RegistrationManagementBtn.Visible = joblable.Text == "目前使用人員：System Administrator"|| joblable.Text == "目前使用人員：Guide"|| joblable.Text == "目前使用人員：旅行社管理員";
+            TimeNow.Start();
+            LoginLogout_Click(null,null);
         }
         AccountViewAndFilter accountViewAndFilter=new AccountViewAndFilter();
         int i = 0;
@@ -108,7 +61,7 @@ namespace LouvreGRS
             this.form_shower.Controls.Add(accountViewAndFilter);
             i++;
             if (i > 1) {
-                accountViewAndFilter.reload();
+                accountViewAndFilter.Reload();
                 i = 1;
             }
             accountViewAndFilter.Show();
@@ -120,6 +73,60 @@ namespace LouvreGRS
             GroupRegistrationManagement.TopLevel = false;
             this.form_shower.Controls.Add(GroupRegistrationManagement);
             GroupRegistrationManagement.Show();
+            GroupRegistrationManagement.CheckJobTitleAndSaveData(JobLable.Text,value);
+        }
+        private void LoginLogout_Click(object sender, EventArgs e)
+        {
+            if (LoginLogoutBtn.Text == "登入")
+            {
+                form_shower.Controls.Clear();
+                loginform.TopLevel = false;
+                this.form_shower.Controls.Add(loginform);
+                loginform.Reset();
+                loginform.Show();
+            }
+            else
+            {
+                JobLable.Text = "目前使用人員：訪客";
+                LoginLogoutBtn.Text = "登入";
+                form_shower.Controls.Clear();
+            }
+        }
+
+        private void FeedbackBtn_Click(object sender, EventArgs e)
+        {
+            form_shower.Controls.Clear();
+            feedbackform.TopLevel = false;
+            this.form_shower.Controls.Add(feedbackform);
+            feedbackform.Reload();
+            feedbackform.Show();
+        }
+
+        private void ExitBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void TopBard_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                int dx = e.X - mouseDownLocation.X;
+                int dy = e.Y - mouseDownLocation.Y;
+                this.Location = new Point(this.Location.X + dx, this.Location.Y + dy);
+            }
+        }
+        private void TopBard_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+                mouseDownLocation = e.Location;
+        }
+
+        private void TimeNow_Tick(object sender, EventArgs e)
+        {
+            TitleLabel.Text = $"Louvre GRS-{DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")}";
+            AccountViewBtn.Visible = JobLable.Text == "目前使用人員：System Administrator";
+            RegistrationManagementBtn.Visible = JobLable.Text == "目前使用人員：System Administrator" || JobLable.Text == "目前使用人員：Guide" || JobLable.Text == "目前使用人員：旅行社管理員";
         }
     }
 }

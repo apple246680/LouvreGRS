@@ -17,14 +17,8 @@ namespace LouvreGRS
         public Login()
         {
             InitializeComponent();
-            AppDomain.CurrentDomain.UnhandledException += HandleUnhandledException;
         }
-        private void HandleUnhandledException(object sender, UnhandledExceptionEventArgs e)
-        {
-            Exception ex = (Exception)e.ExceptionObject;
-            MessageBox.Show($"異常: {ex.Message}", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-        public void reset()
+        public void Reset()
         {
             AccountTextbox.Text = string.Empty;
             NumberTextbox.Text = string.Empty;
@@ -52,9 +46,9 @@ namespace LouvreGRS
                         var checktrave = entities.TravelAgencyDatas.FirstOrDefault(x => x.ID == checkacc.TravelAgencyID);
                         if (checktrave.GovRegistrationCode == NumberTextbox.Text)
                         {
-                            Main.jobstatic("旅行社管理員");
+                            Main.Jobstatic("旅行社管理員");
                             MessageBox.Show($"您好，{match.FirstName} {match.LastName}，歡迎使用羅浮宮團報管理系統，您所代表的旅行社為 {checktrave.Name}。", "登入成功");
-                            Main.backstatic();
+                            Main.Backstatic(checkacc.TravelAgencyData.Name);
                             return;
                         }
                         else
@@ -83,9 +77,9 @@ namespace LouvreGRS
                                 string home = string.Join("、", halls);
                                 if (staffData != null)
                                 {
-                                    Main.jobstatic(staffData.JobTitle);
+                                    Main.Jobstatic(staffData.JobTitle);
                                     MessageBox.Show($"您好，{match.FirstName} {match.LastName}，歡迎使用館內員工專用系統，您的身分別為 {staffData.JobTitle} ，所負責的展館為 {home} 。", "登入成功");
-                                    Main.backstatic();
+                                    Main.Backstatic(home);
                                     return;
                                 }
                             }
@@ -93,9 +87,9 @@ namespace LouvreGRS
                             {
                                 if (staffData != null)
                                 {
-                                    Main.jobstatic(staffData.JobTitle);
+                                    Main.Jobstatic(staffData.JobTitle);
                                     MessageBox.Show($"您好，{match.FirstName} {match.LastName}，歡迎使用館內員工專用系統，您的身分別為 {staffData.JobTitle} 。", "登入成功");
-                                    Main.backstatic();
+                                    Main.Backstatic(null);
                                     return;
                                 }
                             }
@@ -112,10 +106,26 @@ namespace LouvreGRS
                         var aaaa = entities.AccountDatas.FirstOrDefault(x => x.ID == matchnum.AccountID);
                         if (aaaa.Password == PasswordTextbox.Text)
                         {
-                            Main.jobstatic(matchnum.JobTitle);
-                            MessageBox.Show($"您好，{aaaa.FirstName} {aaaa.LastName}，歡迎使用館內員工專用系統，您的身分別為 {matchnum.JobTitle} 。", "登入成功");
-                            Main.backstatic();
-                            return;
+                            if (entities.HallWithStaffs.Any(x => x.AccountID == matchnum.AccountID))
+                            {
+                                var duplicateHalls = entities.HallWithStaffs
+                                   .Where(x => x.AccountID == matchnum.AccountID)
+                                   .Select(x => x.HallID);
+                                var halls = entities.HallDatas
+                                    .Where(x => duplicateHalls.Contains(x.ID))
+                                    .Select(x => x.KnownName);
+                                string home = string.Join("、", halls);
+                                Main.Jobstatic(matchnum.JobTitle);
+                                MessageBox.Show($"您好，{aaaa.FirstName} {aaaa.LastName}，歡迎使用館內員工專用系統，您的身分別為 {matchnum.JobTitle}  ，所負責的展館為 {home} 。", "登入成功");
+                                Main.Backstatic(home);
+                                return;
+                            }
+                            else
+                            {
+                                Main.Jobstatic(matchnum.JobTitle);
+                                MessageBox.Show($"您好，{aaaa.FirstName} {aaaa.LastName}，歡迎使用館內員工專用系統，您的身分別為 {matchnum.JobTitle}。", "登入成功");
+                                Main.Backstatic(null);
+                            }
                         }
                         else
                         {

@@ -18,105 +18,51 @@ namespace LouvreGRS
         public AccountViewAndFilter()
         {
             InitializeComponent();
-            AppDomain.CurrentDomain.UnhandledException +=HandleUnhandledException;
         }
-        private void HandleUnhandledException(object sender, UnhandledExceptionEventArgs e)
+        LouvreGRS_ANMEntities Entities = new LouvreGRS_ANMEntities();
+        public void Reload()
         {
-            Exception ex = (Exception)e.ExceptionObject;
-            MessageBox.Show($"異常: {ex.Message}", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-        LouvreGRS_ANMEntities entities = new LouvreGRS_ANMEntities();
-        DataTable datatable = new DataTable
-        {
-            Columns =
-            {
-                new DataColumn("登入帳號"),
-                new DataColumn("姓名"),
-                new DataColumn("是否為館內人員"),
-                new DataColumn("所屬旅行社"),
-                new DataColumn("角色"),
-                new DataColumn("帳號狀態")
-            }
-        };
-        public async Task Showdata()
-        {
-            var accountDatas = await entities.AccountDatas.ToListAsync();
-            foreach (var item in accountDatas)
-            {
-                string isstaff = "";
-                string travel = "";
-                string job = "";
-                string Status = "";
-                var a = await entities.TravelAgencyUserDatas.FirstOrDefaultAsync(x => x.AccountID == item.ID);
-                if (a == null)
-                {
-                    isstaff = "是";
-                    travel = "N/A";
-                    job = item.StaffData?.JobTitle ?? "";
-                }
-                else
-                {
-                    isstaff = "否";
-                    travel = a.TravelAgencyData?.Name ?? "";
-                    if (a.Type == 1)
-                        job = "管理員";
-                    else
-                        job = "導遊";
-                }
-                if (item.Status == 1)
-                    Status = "正常";
-                else
-                    Status = "關閉";
-                datatable.Rows.Add(item.LoginAccount, $"{item.FirstName} {item.LastName}", isstaff, travel, job, Status);
-            }
-            AccountViewAndFilterDataGridView.Invoke(new Action(() => { AccountViewAndFilterDataGridView.DataSource = datatable; }));
-        }
-        public void reload() {
             IsstaffComobox.SelectedIndex = 0;
             StatusComobox.SelectedIndex = 0;
             FilterButton_Click(null, null);
         }
         private void FilterButton_Click(object sender, EventArgs e)
         {
-                DataTable filteredDataTable = datatable;
-            if (!string.IsNullOrWhiteSpace(AccountFilterTextbox.Text))
-                try
-                {
-                    filteredDataTable = filteredDataTable.Select($"登入帳號 = '{AccountFilterTextbox.Text.Replace("'", "''")}'").CopyToDataTable();
-                }
-                catch
-                {
-                    MessageBox.Show("找不到");
-                }
+            var match = Entities.AccountDatas.Select(x => new {
+                登入帳號 = x.LoginAccount,
+                姓名 = x.LastName + " " + x.FirstName,
+                是否為館內人員 = x.TravelAgencyUserDatas.Any() ? "否" : "是",
+                所屬旅行社 = x.TravelAgencyUserDatas.Any() ? x.TravelAgencyUserDatas.Select(y => y.TravelAgencyData.Name).FirstOrDefault() : "N/A",
+                角色 = x.TravelAgencyUserDatas.Any() ? x.TravelAgencyUserDatas.Select(y=>y.Type).FirstOrDefault()==1?"旅行社管理員":"導遊":x.StaffData.JobTitle,
+                帳號狀態 = x.Status == 0 ? "關閉" : "正常"
+            }).ToList();
+            if (!string.IsNullOrEmpty(AccountFilterTextbox.Text))
+               match= match.Where(x=>x.登入帳號==AccountFilterTextbox.Text).ToList();
             else
             {
-                if (IsstaffComobox.SelectedIndex!=-1&& IsstaffComobox.SelectedIndex !=0)
-                {
-                    string a = IsstaffComobox.Text == "館內人員" ? "是" : "否";
-                    filteredDataTable = filteredDataTable.Select($"是否為館內人員 = '{a}'").CopyToDataTable();
-                }
-                if (StatusComobox.SelectedIndex!=-1&&StatusComobox.SelectedIndex!=0)
-                    filteredDataTable = filteredDataTable.Select($"帳號狀態 = '{StatusComobox.Text}'").CopyToDataTable();
-                try
-                {
-                if(NameTextbox.Text!="")
-                   filteredDataTable = filteredDataTable.Select($"姓名 LIKE '*{NameTextbox.Text.Replace("'", "''")}*'").CopyToDataTable();
-                }
-                catch
-                {
-                    MessageBox.Show("找不到");
-                }
-
+                if (!string.IsNullOrEmpty(LastNameTextbox.Text))
+                   match= match.Where(x => x.姓名.Split(' ')[0].Contains(LastNameTextbox.Text)).ToList();
+                if (!string.IsNullOrEmpty(FirstNameTextbox.Text))
+                   match= match.Where(x => x.姓名.Split(' ')[1].Contains(FirstNameTextbox.Text)).ToList();
+                if(IsstaffComobox.SelectedIndex==1)
+                    match=match.Where(x=>x.是否為館內人員=="是").ToList();
+                else if (IsstaffComobox.SelectedIndex==2)
+                    match = match.Where(x => x.是否為館內人員 == "否").ToList();
+                if(StatusComobox.SelectedIndex>0)
+                    match = match.Where(x => x.帳號狀態 == StatusComobox.Text).ToList();
             }
-            AccountViewAndFilterDataGridView.DataSource = filteredDataTable;
+            AccountViewAndFilterDataGridView.DataSource = match;
         }
         private void AccountFilterTextbox_TextChanged(object sender, EventArgs e)
         {
-            NameTextbox.Enabled = AccountFilterTextbox.Text == "";
+            LastNameTextbox.Enabled = AccountFilterTextbox.Text == "";
+            FirstNameTextbox.Enabled = AccountFilterTextbox.Text == "";
             IsstaffComobox.Enabled = AccountFilterTextbox.Text == "";
             StatusComobox.Enabled = AccountFilterTextbox.Text == "";
-            if (AccountFilterTextbox.Text != "") {
-                NameTextbox.Text = string.Empty;
+            if (AccountFilterTextbox.Text != "")
+            {
+                LastNameTextbox.Text = string.Empty;
+                FirstNameTextbox.Text = string.Empty;
                 IsstaffComobox.SelectedIndex = -1;
                 StatusComobox.SelectedIndex = -1;
             }
@@ -125,27 +71,13 @@ namespace LouvreGRS
                 IsstaffComobox.SelectedIndex = 0;
                 StatusComobox.SelectedIndex = 0;
             }
-            
+
         }
 
         private async void AccountViewAndFilter_Load(object sender, EventArgs e)
         {
-            AccountFilterTextbox.Enabled = false;
-            NameTextbox.Enabled = false;
-            IsstaffComobox.Enabled = false;
-            StatusComobox.Enabled = false;
-            FilterButton.Enabled = false;
-            WaitLable.Visible = true;
-            await Showdata();
-            WaitLable.Visible = false;
-            AccountFilterTextbox.Enabled = true;
-            NameTextbox.Enabled = true;
-            FilterButton.Enabled = true;
             IsstaffComobox.SelectedIndex = 0;
             StatusComobox.SelectedIndex = 0;
-            IsstaffComobox.Enabled = true;
-            StatusComobox.Enabled = true;
         }
     }
 }
-

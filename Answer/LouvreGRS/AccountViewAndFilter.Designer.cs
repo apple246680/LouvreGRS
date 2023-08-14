@@ -32,13 +32,15 @@
             this.FilterButton = new System.Windows.Forms.Button();
             this.AccountFilterLabel = new System.Windows.Forms.Label();
             this.AccountFilterTextbox = new System.Windows.Forms.TextBox();
-            this.NameTextbox = new System.Windows.Forms.TextBox();
-            this.SurnameLabel = new System.Windows.Forms.Label();
+            this.LastNameTextbox = new System.Windows.Forms.TextBox();
+            this.LastNameLabel = new System.Windows.Forms.Label();
             this.IsstaffLabel = new System.Windows.Forms.Label();
             this.StatusLabel = new System.Windows.Forms.Label();
             this.IsstaffComobox = new System.Windows.Forms.ComboBox();
             this.StatusComobox = new System.Windows.Forms.ComboBox();
             this.WaitLable = new System.Windows.Forms.Label();
+            this.FirstNameTextbox = new System.Windows.Forms.TextBox();
+            this.FirstNameLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.AccountViewAndFilterDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,23 +87,23 @@
             this.AccountFilterTextbox.TabIndex = 3;
             this.AccountFilterTextbox.TextChanged += new System.EventHandler(this.AccountFilterTextbox_TextChanged);
             // 
-            // NameTextbox
+            // LastNameTextbox
             // 
-            this.NameTextbox.Font = new System.Drawing.Font("Arial", 16F);
-            this.NameTextbox.Location = new System.Drawing.Point(193, 48);
-            this.NameTextbox.Name = "NameTextbox";
-            this.NameTextbox.Size = new System.Drawing.Size(156, 38);
-            this.NameTextbox.TabIndex = 5;
+            this.LastNameTextbox.Font = new System.Drawing.Font("Arial", 16F);
+            this.LastNameTextbox.Location = new System.Drawing.Point(193, 48);
+            this.LastNameTextbox.Name = "LastNameTextbox";
+            this.LastNameTextbox.Size = new System.Drawing.Size(156, 38);
+            this.LastNameTextbox.TabIndex = 5;
             // 
-            // SurnameLabel
+            // LastNameLabel
             // 
-            this.SurnameLabel.AutoSize = true;
-            this.SurnameLabel.Font = new System.Drawing.Font("Arial", 16F);
-            this.SurnameLabel.Location = new System.Drawing.Point(198, 16);
-            this.SurnameLabel.Name = "SurnameLabel";
-            this.SurnameLabel.Size = new System.Drawing.Size(126, 32);
-            this.SurnameLabel.TabIndex = 4;
-            this.SurnameLabel.Text = "部分姓名";
+            this.LastNameLabel.AutoSize = true;
+            this.LastNameLabel.Font = new System.Drawing.Font("Arial", 16F);
+            this.LastNameLabel.Location = new System.Drawing.Point(198, 16);
+            this.LastNameLabel.Name = "LastNameLabel";
+            this.LastNameLabel.Size = new System.Drawing.Size(126, 32);
+            this.LastNameLabel.TabIndex = 4;
+            this.LastNameLabel.Text = "部分姓氏";
             // 
             // IsstaffLabel
             // 
@@ -162,19 +164,40 @@
             this.WaitLable.Size = new System.Drawing.Size(465, 150);
             this.WaitLable.TabIndex = 12;
             this.WaitLable.Text = "請稍等";
+            this.WaitLable.Visible = false;
+            // 
+            // FirstNameTextbox
+            // 
+            this.FirstNameTextbox.Font = new System.Drawing.Font("Arial", 16F);
+            this.FirstNameTextbox.Location = new System.Drawing.Point(358, 46);
+            this.FirstNameTextbox.Name = "FirstNameTextbox";
+            this.FirstNameTextbox.Size = new System.Drawing.Size(156, 38);
+            this.FirstNameTextbox.TabIndex = 14;
+            // 
+            // FirstNameLabel
+            // 
+            this.FirstNameLabel.AutoSize = true;
+            this.FirstNameLabel.Font = new System.Drawing.Font("Arial", 16F);
+            this.FirstNameLabel.Location = new System.Drawing.Point(363, 14);
+            this.FirstNameLabel.Name = "FirstNameLabel";
+            this.FirstNameLabel.Size = new System.Drawing.Size(126, 32);
+            this.FirstNameLabel.TabIndex = 13;
+            this.FirstNameLabel.Text = "部分姓名";
             // 
             // AccountViewAndFilter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 1000);
+            this.Controls.Add(this.FirstNameTextbox);
+            this.Controls.Add(this.FirstNameLabel);
             this.Controls.Add(this.WaitLable);
             this.Controls.Add(this.StatusComobox);
             this.Controls.Add(this.IsstaffComobox);
             this.Controls.Add(this.StatusLabel);
             this.Controls.Add(this.IsstaffLabel);
-            this.Controls.Add(this.NameTextbox);
-            this.Controls.Add(this.SurnameLabel);
+            this.Controls.Add(this.LastNameTextbox);
+            this.Controls.Add(this.LastNameLabel);
             this.Controls.Add(this.AccountFilterTextbox);
             this.Controls.Add(this.AccountFilterLabel);
             this.Controls.Add(this.FilterButton);
@@ -196,12 +219,14 @@
         private System.Windows.Forms.Button FilterButton;
         private System.Windows.Forms.Label AccountFilterLabel;
         private System.Windows.Forms.TextBox AccountFilterTextbox;
-        private System.Windows.Forms.TextBox NameTextbox;
-        private System.Windows.Forms.Label SurnameLabel;
+        private System.Windows.Forms.TextBox LastNameTextbox;
+        private System.Windows.Forms.Label LastNameLabel;
         private System.Windows.Forms.Label IsstaffLabel;
         private System.Windows.Forms.Label StatusLabel;
         private System.Windows.Forms.ComboBox IsstaffComobox;
         private System.Windows.Forms.ComboBox StatusComobox;
         private System.Windows.Forms.Label WaitLable;
+        private System.Windows.Forms.TextBox FirstNameTextbox;
+        private System.Windows.Forms.Label FirstNameLabel;
     }
 }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.BeautifulLabel = new System.Windows.Forms.FlowLayoutPanel();
             this.AccountPanel = new System.Windows.Forms.Panel();
             this.AccountTextbox = new System.Windows.Forms.TextBox();
             this.AccountLabel = new System.Windows.Forms.Label();
@@ -42,7 +42,7 @@
             this.LoginBtn = new System.Windows.Forms.Button();
             this.ErrorPanel = new System.Windows.Forms.Panel();
             this.ErrorLabel = new System.Windows.Forms.Label();
-            this.flowLayoutPanel2.SuspendLayout();
+            this.BeautifulLabel.SuspendLayout();
             this.AccountPanel.SuspendLayout();
             this.NumberPanel.SuspendLayout();
             this.PasswordPanel.SuspendLayout();
@@ -50,17 +50,17 @@
             this.ErrorPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // flowLayoutPanel2
+            // BeautifulLabel
             // 
-            this.flowLayoutPanel2.Controls.Add(this.AccountPanel);
-            this.flowLayoutPanel2.Controls.Add(this.NumberPanel);
-            this.flowLayoutPanel2.Controls.Add(this.PasswordPanel);
-            this.flowLayoutPanel2.Controls.Add(this.LoginPanel);
-            this.flowLayoutPanel2.Controls.Add(this.ErrorPanel);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(184, 50);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(908, 555);
-            this.flowLayoutPanel2.TabIndex = 10;
+            this.BeautifulLabel.Controls.Add(this.AccountPanel);
+            this.BeautifulLabel.Controls.Add(this.NumberPanel);
+            this.BeautifulLabel.Controls.Add(this.PasswordPanel);
+            this.BeautifulLabel.Controls.Add(this.LoginPanel);
+            this.BeautifulLabel.Controls.Add(this.ErrorPanel);
+            this.BeautifulLabel.Location = new System.Drawing.Point(184, 50);
+            this.BeautifulLabel.Name = "BeautifulLabel";
+            this.BeautifulLabel.Size = new System.Drawing.Size(908, 555);
+            this.BeautifulLabel.TabIndex = 10;
             // 
             // AccountPanel
             // 
@@ -192,12 +192,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 830);
-            this.Controls.Add(this.flowLayoutPanel2);
+            this.Controls.Add(this.BeautifulLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Login_Load);
-            this.flowLayoutPanel2.ResumeLayout(false);
+            this.BeautifulLabel.ResumeLayout(false);
             this.AccountPanel.ResumeLayout(false);
             this.AccountPanel.PerformLayout();
             this.NumberPanel.ResumeLayout(false);
@@ -213,7 +213,7 @@
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.FlowLayoutPanel BeautifulLabel;
         private System.Windows.Forms.Panel AccountPanel;
         private System.Windows.Forms.TextBox AccountTextbox;
         private System.Windows.Forms.Label AccountLabel;

@@ -30,53 +30,53 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            this.icon = new System.Windows.Forms.PictureBox();
-            this.top_bard = new System.Windows.Forms.Panel();
+            this.Icon = new System.Windows.Forms.PictureBox();
+            this.TopBard = new System.Windows.Forms.Panel();
             this.RegistrationManagementBtn = new System.Windows.Forms.Button();
             this.AccountViewBtn = new System.Windows.Forms.Button();
-            this.exit_btn = new System.Windows.Forms.Button();
-            this.title_lab = new System.Windows.Forms.Label();
-            this.down_bard = new System.Windows.Forms.Panel();
-            this.joblable = new System.Windows.Forms.Label();
-            this.login_logout = new System.Windows.Forms.Button();
-            this.pict1 = new System.Windows.Forms.PictureBox();
-            this.pict2 = new System.Windows.Forms.PictureBox();
-            this.feedback_btn = new System.Windows.Forms.Button();
+            this.ExitBtn = new System.Windows.Forms.Button();
+            this.TitleLabel = new System.Windows.Forms.Label();
+            this.DownBard = new System.Windows.Forms.Panel();
+            this.JobLable = new System.Windows.Forms.Label();
+            this.LoginLogoutBtn = new System.Windows.Forms.Button();
+            this.Pict1 = new System.Windows.Forms.PictureBox();
+            this.Pict2 = new System.Windows.Forms.PictureBox();
+            this.Feedback_btn = new System.Windows.Forms.Button();
             this.form_shower = new System.Windows.Forms.Panel();
-            this.timenow = new System.Windows.Forms.Timer(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.icon)).BeginInit();
-            this.top_bard.SuspendLayout();
-            this.down_bard.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pict1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pict2)).BeginInit();
+            this.TimeNow = new System.Windows.Forms.Timer(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.Icon)).BeginInit();
+            this.TopBard.SuspendLayout();
+            this.DownBard.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Pict1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Pict2)).BeginInit();
             this.SuspendLayout();
             // 
-            // icon
+            // Icon
             // 
-            this.icon.Dock = System.Windows.Forms.DockStyle.Left;
-            this.icon.Image = ((System.Drawing.Image)(resources.GetObject("icon.Image")));
-            this.icon.Location = new System.Drawing.Point(0, 0);
-            this.icon.Name = "icon";
-            this.icon.Size = new System.Drawing.Size(40, 48);
-            this.icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.icon.TabIndex = 0;
-            this.icon.TabStop = false;
+            this.Icon.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Icon.Image = ((System.Drawing.Image)(resources.GetObject("Icon.Image")));
+            this.Icon.Location = new System.Drawing.Point(0, 0);
+            this.Icon.Name = "Icon";
+            this.Icon.Size = new System.Drawing.Size(40, 48);
+            this.Icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Icon.TabIndex = 0;
+            this.Icon.TabStop = false;
             // 
-            // top_bard
+            // TopBard
             // 
-            this.top_bard.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.top_bard.Controls.Add(this.RegistrationManagementBtn);
-            this.top_bard.Controls.Add(this.AccountViewBtn);
-            this.top_bard.Controls.Add(this.exit_btn);
-            this.top_bard.Controls.Add(this.title_lab);
-            this.top_bard.Controls.Add(this.icon);
-            this.top_bard.Dock = System.Windows.Forms.DockStyle.Top;
-            this.top_bard.Location = new System.Drawing.Point(0, 0);
-            this.top_bard.Name = "top_bard";
-            this.top_bard.Size = new System.Drawing.Size(1200, 50);
-            this.top_bard.TabIndex = 1;
-            this.top_bard.MouseDown += new System.Windows.Forms.MouseEventHandler(this.top_bard_MouseDown);
-            this.top_bard.MouseMove += new System.Windows.Forms.MouseEventHandler(this.top_bard_MouseMove);
+            this.TopBard.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TopBard.Controls.Add(this.RegistrationManagementBtn);
+            this.TopBard.Controls.Add(this.AccountViewBtn);
+            this.TopBard.Controls.Add(this.ExitBtn);
+            this.TopBard.Controls.Add(this.TitleLabel);
+            this.TopBard.Controls.Add(this.Icon);
+            this.TopBard.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TopBard.Location = new System.Drawing.Point(0, 0);
+            this.TopBard.Name = "TopBard";
+            this.TopBard.Size = new System.Drawing.Size(1200, 50);
+            this.TopBard.TabIndex = 1;
+            this.TopBard.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TopBard_MouseDown);
+            this.TopBard.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopBard_MouseMove);
             // 
             // RegistrationManagementBtn
             // 
@@ -108,108 +108,108 @@
             this.AccountViewBtn.UseVisualStyleBackColor = true;
             this.AccountViewBtn.Click += new System.EventHandler(this.AccountViewBtn_Click);
             // 
-            // exit_btn
+            // ExitBtn
             // 
-            this.exit_btn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.exit_btn.FlatAppearance.BorderSize = 0;
-            this.exit_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exit_btn.Font = new System.Drawing.Font("Arial", 15F);
-            this.exit_btn.Location = new System.Drawing.Point(1123, 0);
-            this.exit_btn.Name = "exit_btn";
-            this.exit_btn.Size = new System.Drawing.Size(75, 48);
-            this.exit_btn.TabIndex = 2;
-            this.exit_btn.TabStop = false;
-            this.exit_btn.Text = "X";
-            this.exit_btn.UseVisualStyleBackColor = true;
-            this.exit_btn.Click += new System.EventHandler(this.exit_btn_Click);
+            this.ExitBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ExitBtn.FlatAppearance.BorderSize = 0;
+            this.ExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ExitBtn.Font = new System.Drawing.Font("Arial", 15F);
+            this.ExitBtn.Location = new System.Drawing.Point(1123, 0);
+            this.ExitBtn.Name = "ExitBtn";
+            this.ExitBtn.Size = new System.Drawing.Size(75, 48);
+            this.ExitBtn.TabIndex = 2;
+            this.ExitBtn.TabStop = false;
+            this.ExitBtn.Text = "X";
+            this.ExitBtn.UseVisualStyleBackColor = true;
+            this.ExitBtn.Click += new System.EventHandler(this.ExitBtn_Click);
             // 
-            // title_lab
+            // TitleLabel
             // 
-            this.title_lab.AutoSize = true;
-            this.title_lab.Dock = System.Windows.Forms.DockStyle.Left;
-            this.title_lab.Font = new System.Drawing.Font("Arial", 23F);
-            this.title_lab.Location = new System.Drawing.Point(40, 0);
-            this.title_lab.Name = "title_lab";
-            this.title_lab.Size = new System.Drawing.Size(247, 44);
-            this.title_lab.TabIndex = 1;
-            this.title_lab.Text = "Louvre GRS-";
+            this.TitleLabel.AutoSize = true;
+            this.TitleLabel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.TitleLabel.Font = new System.Drawing.Font("Arial", 23F);
+            this.TitleLabel.Location = new System.Drawing.Point(40, 0);
+            this.TitleLabel.Name = "TitleLabel";
+            this.TitleLabel.Size = new System.Drawing.Size(247, 44);
+            this.TitleLabel.TabIndex = 1;
+            this.TitleLabel.Text = "Louvre GRS-";
             // 
-            // down_bard
+            // DownBard
             // 
-            this.down_bard.BackColor = System.Drawing.Color.Black;
-            this.down_bard.Controls.Add(this.joblable);
-            this.down_bard.Controls.Add(this.login_logout);
-            this.down_bard.Controls.Add(this.pict1);
-            this.down_bard.Controls.Add(this.pict2);
-            this.down_bard.Controls.Add(this.feedback_btn);
-            this.down_bard.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.down_bard.Location = new System.Drawing.Point(0, 880);
-            this.down_bard.Name = "down_bard";
-            this.down_bard.Size = new System.Drawing.Size(1200, 120);
-            this.down_bard.TabIndex = 2;
+            this.DownBard.BackColor = System.Drawing.Color.Black;
+            this.DownBard.Controls.Add(this.JobLable);
+            this.DownBard.Controls.Add(this.LoginLogoutBtn);
+            this.DownBard.Controls.Add(this.Pict1);
+            this.DownBard.Controls.Add(this.Pict2);
+            this.DownBard.Controls.Add(this.Feedback_btn);
+            this.DownBard.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.DownBard.Location = new System.Drawing.Point(0, 880);
+            this.DownBard.Name = "DownBard";
+            this.DownBard.Size = new System.Drawing.Size(1200, 120);
+            this.DownBard.TabIndex = 2;
             // 
-            // joblable
+            // JobLable
             // 
-            this.joblable.AutoSize = true;
-            this.joblable.Font = new System.Drawing.Font("Arial", 14F);
-            this.joblable.ForeColor = System.Drawing.Color.White;
-            this.joblable.Location = new System.Drawing.Point(731, 72);
-            this.joblable.Name = "joblable";
-            this.joblable.Size = new System.Drawing.Size(228, 27);
-            this.joblable.TabIndex = 4;
-            this.joblable.Text = "目前使用人員：訪客";
+            this.JobLable.AutoSize = true;
+            this.JobLable.Font = new System.Drawing.Font("Arial", 14F);
+            this.JobLable.ForeColor = System.Drawing.Color.White;
+            this.JobLable.Location = new System.Drawing.Point(731, 72);
+            this.JobLable.Name = "JobLable";
+            this.JobLable.Size = new System.Drawing.Size(228, 27);
+            this.JobLable.TabIndex = 4;
+            this.JobLable.Text = "目前使用人員：訪客";
             // 
-            // login_logout
+            // LoginLogoutBtn
             // 
-            this.login_logout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.login_logout.FlatAppearance.BorderSize = 0;
-            this.login_logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.login_logout.Font = new System.Drawing.Font("Arial", 12F);
-            this.login_logout.ForeColor = System.Drawing.Color.White;
-            this.login_logout.Location = new System.Drawing.Point(731, 3);
-            this.login_logout.Name = "login_logout";
-            this.login_logout.Size = new System.Drawing.Size(466, 66);
-            this.login_logout.TabIndex = 3;
-            this.login_logout.TabStop = false;
-            this.login_logout.Text = "登入";
-            this.login_logout.UseVisualStyleBackColor = false;
-            this.login_logout.Click += new System.EventHandler(this.login_logout_Click);
+            this.LoginLogoutBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.LoginLogoutBtn.FlatAppearance.BorderSize = 0;
+            this.LoginLogoutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LoginLogoutBtn.Font = new System.Drawing.Font("Arial", 12F);
+            this.LoginLogoutBtn.ForeColor = System.Drawing.Color.White;
+            this.LoginLogoutBtn.Location = new System.Drawing.Point(731, 3);
+            this.LoginLogoutBtn.Name = "LoginLogoutBtn";
+            this.LoginLogoutBtn.Size = new System.Drawing.Size(466, 66);
+            this.LoginLogoutBtn.TabIndex = 3;
+            this.LoginLogoutBtn.TabStop = false;
+            this.LoginLogoutBtn.Text = "登入";
+            this.LoginLogoutBtn.UseVisualStyleBackColor = false;
+            this.LoginLogoutBtn.Click += new System.EventHandler(this.LoginLogout_Click);
             // 
-            // pict1
+            // Pict1
             // 
-            this.pict1.Image = ((System.Drawing.Image)(resources.GetObject("pict1.Image")));
-            this.pict1.Location = new System.Drawing.Point(365, 3);
-            this.pict1.Name = "pict1";
-            this.pict1.Size = new System.Drawing.Size(360, 120);
-            this.pict1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pict1.TabIndex = 2;
-            this.pict1.TabStop = false;
+            this.Pict1.Image = ((System.Drawing.Image)(resources.GetObject("Pict1.Image")));
+            this.Pict1.Location = new System.Drawing.Point(365, 3);
+            this.Pict1.Name = "Pict1";
+            this.Pict1.Size = new System.Drawing.Size(360, 120);
+            this.Pict1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Pict1.TabIndex = 2;
+            this.Pict1.TabStop = false;
             // 
-            // pict2
+            // Pict2
             // 
-            this.pict2.Image = ((System.Drawing.Image)(resources.GetObject("pict2.Image")));
-            this.pict2.Location = new System.Drawing.Point(254, -3);
-            this.pict2.Name = "pict2";
-            this.pict2.Size = new System.Drawing.Size(120, 120);
-            this.pict2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pict2.TabIndex = 1;
-            this.pict2.TabStop = false;
+            this.Pict2.Image = ((System.Drawing.Image)(resources.GetObject("Pict2.Image")));
+            this.Pict2.Location = new System.Drawing.Point(254, -3);
+            this.Pict2.Name = "Pict2";
+            this.Pict2.Size = new System.Drawing.Size(120, 120);
+            this.Pict2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Pict2.TabIndex = 1;
+            this.Pict2.TabStop = false;
             // 
-            // feedback_btn
+            // Feedback_btn
             // 
-            this.feedback_btn.Dock = System.Windows.Forms.DockStyle.Left;
-            this.feedback_btn.FlatAppearance.BorderSize = 0;
-            this.feedback_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.feedback_btn.Font = new System.Drawing.Font("Arial", 15F);
-            this.feedback_btn.ForeColor = System.Drawing.Color.White;
-            this.feedback_btn.Location = new System.Drawing.Point(0, 0);
-            this.feedback_btn.Name = "feedback_btn";
-            this.feedback_btn.Size = new System.Drawing.Size(181, 120);
-            this.feedback_btn.TabIndex = 0;
-            this.feedback_btn.TabStop = false;
-            this.feedback_btn.Text = "回饋意見😀";
-            this.feedback_btn.UseVisualStyleBackColor = true;
-            this.feedback_btn.Click += new System.EventHandler(this.feedback_btn_Click);
+            this.Feedback_btn.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Feedback_btn.FlatAppearance.BorderSize = 0;
+            this.Feedback_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Feedback_btn.Font = new System.Drawing.Font("Arial", 15F);
+            this.Feedback_btn.ForeColor = System.Drawing.Color.White;
+            this.Feedback_btn.Location = new System.Drawing.Point(0, 0);
+            this.Feedback_btn.Name = "Feedback_btn";
+            this.Feedback_btn.Size = new System.Drawing.Size(181, 120);
+            this.Feedback_btn.TabIndex = 0;
+            this.Feedback_btn.TabStop = false;
+            this.Feedback_btn.Text = "回饋意見😀";
+            this.Feedback_btn.UseVisualStyleBackColor = true;
+            this.Feedback_btn.Click += new System.EventHandler(this.FeedbackBtn_Click);
             // 
             // form_shower
             // 
@@ -221,10 +221,10 @@
             this.form_shower.Size = new System.Drawing.Size(1200, 830);
             this.form_shower.TabIndex = 3;
             // 
-            // timenow
+            // TimeNow
             // 
-            this.timenow.Interval = 1;
-            this.timenow.Tick += new System.EventHandler(this.timenow_Tick);
+            this.TimeNow.Interval = 1;
+            this.TimeNow.Tick += new System.EventHandler(this.TimeNow_Tick);
             // 
             // Main
             // 
@@ -232,37 +232,37 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 1000);
             this.Controls.Add(this.form_shower);
-            this.Controls.Add(this.down_bard);
-            this.Controls.Add(this.top_bard);
+            this.Controls.Add(this.DownBard);
+            this.Controls.Add(this.TopBard);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Main";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Main_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.icon)).EndInit();
-            this.top_bard.ResumeLayout(false);
-            this.top_bard.PerformLayout();
-            this.down_bard.ResumeLayout(false);
-            this.down_bard.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pict1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pict2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Icon)).EndInit();
+            this.TopBard.ResumeLayout(false);
+            this.TopBard.PerformLayout();
+            this.DownBard.ResumeLayout(false);
+            this.DownBard.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Pict1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Pict2)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox icon;
-        private System.Windows.Forms.Panel top_bard;
-        private System.Windows.Forms.Label title_lab;
-        private System.Windows.Forms.Button exit_btn;
-        private System.Windows.Forms.Panel down_bard;
-        private System.Windows.Forms.PictureBox pict2;
-        private System.Windows.Forms.Button feedback_btn;
-        private System.Windows.Forms.PictureBox pict1;
-        private System.Windows.Forms.Label joblable;
-        private System.Windows.Forms.Button login_logout;
+        private System.Windows.Forms.PictureBox Icon;
+        private System.Windows.Forms.Panel TopBard;
+        private System.Windows.Forms.Label TitleLabel;
+        private System.Windows.Forms.Button ExitBtn;
+        private System.Windows.Forms.Panel DownBard;
+        private System.Windows.Forms.PictureBox Pict2;
+        private System.Windows.Forms.Button Feedback_btn;
+        private System.Windows.Forms.PictureBox Pict1;
+        private System.Windows.Forms.Label JobLable;
+        private System.Windows.Forms.Button LoginLogoutBtn;
         private System.Windows.Forms.Panel form_shower;
-        private System.Windows.Forms.Timer timenow;
+        private System.Windows.Forms.Timer TimeNow;
         private System.Windows.Forms.Button AccountViewBtn;
         private System.Windows.Forms.Button RegistrationManagementBtn;
     }
