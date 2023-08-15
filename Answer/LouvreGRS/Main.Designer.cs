@@ -30,12 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            this.Icon = new System.Windows.Forms.PictureBox();
             this.TopBard = new System.Windows.Forms.Panel();
             this.RegistrationManagementBtn = new System.Windows.Forms.Button();
             this.AccountViewBtn = new System.Windows.Forms.Button();
-            this.ExitBtn = new System.Windows.Forms.Button();
-            this.TitleLabel = new System.Windows.Forms.Label();
             this.DownBard = new System.Windows.Forms.Panel();
             this.JobLable = new System.Windows.Forms.Label();
             this.LoginLogoutBtn = new System.Windows.Forms.Button();
@@ -44,32 +41,17 @@
             this.Feedback_btn = new System.Windows.Forms.Button();
             this.form_shower = new System.Windows.Forms.Panel();
             this.TimeNow = new System.Windows.Forms.Timer(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.Icon)).BeginInit();
             this.TopBard.SuspendLayout();
             this.DownBard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pict1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pict2)).BeginInit();
             this.SuspendLayout();
             // 
-            // Icon
-            // 
-            this.Icon.Dock = System.Windows.Forms.DockStyle.Left;
-            this.Icon.Image = ((System.Drawing.Image)(resources.GetObject("Icon.Image")));
-            this.Icon.Location = new System.Drawing.Point(0, 0);
-            this.Icon.Name = "Icon";
-            this.Icon.Size = new System.Drawing.Size(40, 48);
-            this.Icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Icon.TabIndex = 0;
-            this.Icon.TabStop = false;
-            // 
             // TopBard
             // 
             this.TopBard.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TopBard.Controls.Add(this.RegistrationManagementBtn);
             this.TopBard.Controls.Add(this.AccountViewBtn);
-            this.TopBard.Controls.Add(this.ExitBtn);
-            this.TopBard.Controls.Add(this.TitleLabel);
-            this.TopBard.Controls.Add(this.Icon);
             this.TopBard.Dock = System.Windows.Forms.DockStyle.Top;
             this.TopBard.Location = new System.Drawing.Point(0, 0);
             this.TopBard.Name = "TopBard";
@@ -84,7 +66,7 @@
             this.RegistrationManagementBtn.FlatAppearance.BorderSize = 0;
             this.RegistrationManagementBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RegistrationManagementBtn.Font = new System.Drawing.Font("Arial", 15F);
-            this.RegistrationManagementBtn.Location = new System.Drawing.Point(686, 0);
+            this.RegistrationManagementBtn.Location = new System.Drawing.Point(761, 0);
             this.RegistrationManagementBtn.Name = "RegistrationManagementBtn";
             this.RegistrationManagementBtn.Size = new System.Drawing.Size(230, 48);
             this.RegistrationManagementBtn.TabIndex = 4;
@@ -99,7 +81,7 @@
             this.AccountViewBtn.FlatAppearance.BorderSize = 0;
             this.AccountViewBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AccountViewBtn.Font = new System.Drawing.Font("Arial", 15F);
-            this.AccountViewBtn.Location = new System.Drawing.Point(916, 0);
+            this.AccountViewBtn.Location = new System.Drawing.Point(991, 0);
             this.AccountViewBtn.Name = "AccountViewBtn";
             this.AccountViewBtn.Size = new System.Drawing.Size(207, 48);
             this.AccountViewBtn.TabIndex = 3;
@@ -107,32 +89,6 @@
             this.AccountViewBtn.Text = "帳號檢視及篩選";
             this.AccountViewBtn.UseVisualStyleBackColor = true;
             this.AccountViewBtn.Click += new System.EventHandler(this.AccountViewBtn_Click);
-            // 
-            // ExitBtn
-            // 
-            this.ExitBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ExitBtn.FlatAppearance.BorderSize = 0;
-            this.ExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ExitBtn.Font = new System.Drawing.Font("Arial", 15F);
-            this.ExitBtn.Location = new System.Drawing.Point(1123, 0);
-            this.ExitBtn.Name = "ExitBtn";
-            this.ExitBtn.Size = new System.Drawing.Size(75, 48);
-            this.ExitBtn.TabIndex = 2;
-            this.ExitBtn.TabStop = false;
-            this.ExitBtn.Text = "X";
-            this.ExitBtn.UseVisualStyleBackColor = true;
-            this.ExitBtn.Click += new System.EventHandler(this.ExitBtn_Click);
-            // 
-            // TitleLabel
-            // 
-            this.TitleLabel.AutoSize = true;
-            this.TitleLabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.TitleLabel.Font = new System.Drawing.Font("Arial", 23F);
-            this.TitleLabel.Location = new System.Drawing.Point(40, 0);
-            this.TitleLabel.Name = "TitleLabel";
-            this.TitleLabel.Size = new System.Drawing.Size(247, 44);
-            this.TitleLabel.TabIndex = 1;
-            this.TitleLabel.Text = "Louvre GRS-";
             // 
             // DownBard
             // 
@@ -234,13 +190,12 @@
             this.Controls.Add(this.form_shower);
             this.Controls.Add(this.DownBard);
             this.Controls.Add(this.TopBard);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Main";
-            this.Text = "Form1";
+            this.Text = "Louvre GRS-";
             this.Load += new System.EventHandler(this.Main_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.Icon)).EndInit();
             this.TopBard.ResumeLayout(false);
-            this.TopBard.PerformLayout();
             this.DownBard.ResumeLayout(false);
             this.DownBard.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pict1)).EndInit();
@@ -250,11 +205,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox Icon;
         private System.Windows.Forms.Panel TopBard;
-        private System.Windows.Forms.Label TitleLabel;
-        private System.Windows.Forms.Button ExitBtn;
         private System.Windows.Forms.Panel DownBard;
         private System.Windows.Forms.PictureBox Pict2;
         private System.Windows.Forms.Button Feedback_btn;

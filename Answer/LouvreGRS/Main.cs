@@ -18,12 +18,6 @@ namespace LouvreGRS
         {
             ins= this;
             InitializeComponent();
-            AppDomain.CurrentDomain.UnhandledException += HandleUnhandledException;
-        }
-        private void HandleUnhandledException(object sender, UnhandledExceptionEventArgs e)
-        {
-            Exception ex = (Exception)e.ExceptionObject;
-            MessageBox.Show($"異常: {ex.Message}", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         string value = "";
         public void Back(string retrunvalue)
@@ -50,6 +44,7 @@ namespace LouvreGRS
         private void Main_Load(object sender, EventArgs e)
         {
             TimeNow.Start();
+            IsJob();
             LoginLogout_Click(null,null);
         }
         AccountViewAndFilter accountViewAndFilter=new AccountViewAndFilter();
@@ -90,6 +85,7 @@ namespace LouvreGRS
                 JobLable.Text = "目前使用人員：訪客";
                 LoginLogoutBtn.Text = "登入";
                 form_shower.Controls.Clear();
+                IsJob();
             }
         }
 
@@ -124,9 +120,14 @@ namespace LouvreGRS
 
         private void TimeNow_Tick(object sender, EventArgs e)
         {
-            TitleLabel.Text = $"Louvre GRS-{DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")}";
+            this.Text = $"Louvre GRS-{DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")}";
+        }
+        public void IsJob() {
             AccountViewBtn.Visible = JobLable.Text == "目前使用人員：System Administrator";
             RegistrationManagementBtn.Visible = JobLable.Text == "目前使用人員：System Administrator" || JobLable.Text == "目前使用人員：Guide" || JobLable.Text == "目前使用人員：旅行社管理員";
+        }
+        static public void StaticIsJob() {
+            ins.IsJob();
         }
     }
 }

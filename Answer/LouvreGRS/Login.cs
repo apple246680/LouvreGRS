@@ -38,7 +38,6 @@ namespace LouvreGRS
                     {
                         ErrorLabel.Text = "請輸入正確的管理密碼！！";
                         ErrorPanel.Visible = true;
-                        return;
                     }
                     var checkacc = entities.TravelAgencyUserDatas.FirstOrDefault(x => x.AccountID == match.ID);
                     if (checkacc != null)
@@ -48,14 +47,13 @@ namespace LouvreGRS
                         {
                             Main.Jobstatic("旅行社管理員");
                             MessageBox.Show($"您好，{match.FirstName} {match.LastName}，歡迎使用羅浮宮團報管理系統，您所代表的旅行社為 {checktrave.Name}。", "登入成功");
+                            Main.StaticIsJob();
                             Main.Backstatic(checkacc.TravelAgencyData.Name);
-                            return;
                         }
                         else
                         {
                             ErrorLabel.Text = "您輸入的資料有誤或該帳號無法使用本管理系統！";
                             ErrorPanel.Visible = true;
-                            return;
                         }
                     }
                 }
@@ -79,8 +77,8 @@ namespace LouvreGRS
                                 {
                                     Main.Jobstatic(staffData.JobTitle);
                                     MessageBox.Show($"您好，{match.FirstName} {match.LastName}，歡迎使用館內員工專用系統，您的身分別為 {staffData.JobTitle} ，所負責的展館為 {home} 。", "登入成功");
+                                    Main.StaticIsJob();
                                     Main.Backstatic(home);
-                                    return;
                                 }
                             }
                             else
@@ -89,8 +87,8 @@ namespace LouvreGRS
                                 {
                                     Main.Jobstatic(staffData.JobTitle);
                                     MessageBox.Show($"您好，{match.FirstName} {match.LastName}，歡迎使用館內員工專用系統，您的身分別為 {staffData.JobTitle} 。", "登入成功");
+                                    Main.StaticIsJob();
                                     Main.Backstatic(null);
-                                    return;
                                 }
                             }
                         }
@@ -98,7 +96,6 @@ namespace LouvreGRS
                         {
                             ErrorLabel.Text = "請輸入正確的員工密碼！";
                             ErrorPanel.Visible = true;
-                            return;
                         }
                     }
                     else if (matchnum != null)//館內員工emp
@@ -117,13 +114,14 @@ namespace LouvreGRS
                                 string home = string.Join("、", halls);
                                 Main.Jobstatic(matchnum.JobTitle);
                                 MessageBox.Show($"您好，{aaaa.FirstName} {aaaa.LastName}，歡迎使用館內員工專用系統，您的身分別為 {matchnum.JobTitle}  ，所負責的展館為 {home} 。", "登入成功");
+                                Main.StaticIsJob();
                                 Main.Backstatic(home);
-                                return;
                             }
                             else
                             {
                                 Main.Jobstatic(matchnum.JobTitle);
                                 MessageBox.Show($"您好，{aaaa.FirstName} {aaaa.LastName}，歡迎使用館內員工專用系統，您的身分別為 {matchnum.JobTitle}。", "登入成功");
+                                Main.StaticIsJob();
                                 Main.Backstatic(null);
                             }
                         }
@@ -131,7 +129,6 @@ namespace LouvreGRS
                         {
                             ErrorLabel.Text = "請輸入正確的員工密碼！";
                             ErrorPanel.Visible = true;
-                            return;
                         }
                     }
                     else//旅行社非管理帳號
